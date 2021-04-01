@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace SysMediPlus.InsideForms
 {
-    public partial class PacientesFRM : Form
+    public partial class VerPacientesFRm : Form
     {
-        public PacientesFRM()
+        public VerPacientesFRm()
         {
             InitializeComponent();
         }

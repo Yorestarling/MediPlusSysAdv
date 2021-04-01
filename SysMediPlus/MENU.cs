@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using SysMediPlus.InsideForms;
+
 
 namespace SysMediPlus
 {
@@ -13,6 +15,12 @@ namespace SysMediPlus
         public MENU()
         {
             InitializeComponent();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PACIENTES pacientes = new PACIENTES();
+            pacientes.ShowDialog();   
         }
     }
 }
