@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{909E2FC6-A4A1-4AB3-8188-51654EB39D72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{909E2FC6-A4A1-4AB3-8188-51654EB39D72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysMediPlus", "SysMediPlus\SysMediPlus.csproj", "{FB7831EE-3764-41C6-8E1B-12E43ADEDBE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SysMediPlus", "SysMediPlus\SysMediPlus.csproj", "{FB7831EE-3764-41C6-8E1B-12E43ADEDBE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysMediPlusWeb", "SysMediPlusWeb\SysMediPlusWeb.csproj", "{9C7F8F4D-9A75-48B9-BBEE-B94E82BE3457}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SysMediPlusWeb", "SysMediPlusWeb\SysMediPlusWeb.csproj", "{9C7F8F4D-9A75-48B9-BBEE-B94E82BE3457}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
