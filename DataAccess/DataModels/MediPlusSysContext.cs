@@ -27,6 +27,7 @@ namespace DataAccess
         public virtual DbSet<Horario> Horarios { get; set; }
         public virtual DbSet<Nacionalidade> Nacionalidades { get; set; }
         public virtual DbSet<Paciente> Pacientes { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -90,11 +91,6 @@ namespace DataAccess
                 entity.Property(e => e.NombreDia)
                     .HasMaxLength(10)
                     .IsUnicode(false);
-
-                entity.HasOne(d => d.IdHorarioNavigation)
-                    .WithMany(p => p.Dia)
-                    .HasForeignKey(d => d.IdHorario)
-                    .HasConstraintName("Fk_IdHorarios");
             });
 
             modelBuilder.Entity<Doctore>(entity =>
@@ -102,12 +98,8 @@ namespace DataAccess
                 entity.HasKey(e => e.IdDoctor)
                     .HasName("Pk_IdDoctor");
 
-                entity.Property(e => e.Apellido1)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Apellido2)
-                    .HasMaxLength(50)
+                entity.Property(e => e.Apellidos)
+                    .HasMaxLength(70)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Celular)
@@ -148,6 +140,11 @@ namespace DataAccess
                     .WithMany(p => p.Doctores)
                     .HasForeignKey(d => d.IdHorario)
                     .HasConstraintName("Fk_IdHorario");
+
+                entity.HasOne(d => d.IddiaNavigation)
+                    .WithMany(p => p.Doctores)
+                    .HasForeignKey(d => d.Iddia)
+                    .HasConstraintName("Fk_Iddia");
             });
 
             modelBuilder.Entity<Especialidade>(entity =>
@@ -274,6 +271,24 @@ namespace DataAccess
                     .WithMany(p => p.Pacientes)
                     .HasForeignKey(d => d.IdNacionalidad)
                     .HasConstraintName("Fk_IdNacionalidad");
+            });
+
+            modelBuilder.Entity<Usuario>(entity =>
+            {
+                entity.HasKey(e => e.IdUsuario)
+                    .HasName("Pk_IdUsuario");
+
+                entity.Property(e => e.Contraseña)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CorreoElectronico)
+                    .HasMaxLength(70)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NombreDeUsuario)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);
