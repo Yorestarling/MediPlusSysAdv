@@ -11,8 +11,9 @@ namespace DataAccess
         public int IdPaciente { get; set; }
         public int IdDoctor { get; set; }
         public DateTime FechaCita { get; set; }
-        public DateTime FechaSolicitud { get; set; }
+        public DateTime? FechaSolicitud { get; set; }
         public string Tanda { get; set; }
+        public string Comentario { get; set; }
         public string Motivo { get; set; }
         public int? IdEstado { get; set; }
 

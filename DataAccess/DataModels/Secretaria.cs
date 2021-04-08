@@ -13,7 +13,7 @@ namespace DataAccess
         public string Sexo { get; set; }
         public string Telefono { get; set; }
         public string Celular { get; set; }
-        public int Idusuario { get; set; }
+        public int? Idusuario { get; set; }
         public int IdCargo { get; set; }
 
         public virtual Cargo IdCargoNavigation { get; set; }

@@ -59,6 +59,8 @@ namespace DataAccess
                 entity.HasKey(e => e.IdCita)
                     .HasName("Pk_IdCita");
 
+                entity.Property(e => e.Comentario).IsUnicode(false);
+
                 entity.Property(e => e.FechaCita).HasColumnType("date");
 
                 entity.Property(e => e.FechaSolicitud).HasColumnType("date");
@@ -66,7 +68,6 @@ namespace DataAccess
                 entity.Property(e => e.Motivo).IsUnicode(false);
 
                 entity.Property(e => e.Tanda)
-                    .IsRequired()
                     .HasMaxLength(8)
                     .IsUnicode(false);
 
@@ -146,13 +147,11 @@ namespace DataAccess
                 entity.HasOne(d => d.IddiaNavigation)
                     .WithMany(p => p.Doctores)
                     .HasForeignKey(d => d.Iddia)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Fk_IddiaD");
 
                 entity.HasOne(d => d.IdusuarioNavigation)
                     .WithMany(p => p.Doctores)
                     .HasForeignKey(d => d.Idusuario)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Fk_IDUsuarioD");
             });
 
@@ -342,7 +341,6 @@ namespace DataAccess
                 entity.HasOne(d => d.IdusuarioNavigation)
                     .WithMany(p => p.Secretaria)
                     .HasForeignKey(d => d.Idusuario)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Fk_IDUsuarioS");
             });
 

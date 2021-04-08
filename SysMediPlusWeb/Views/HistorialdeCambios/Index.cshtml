@@ -1,0 +1,65 @@
+﻿@model IEnumerable<DataAccess.HistorialdeCambio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Historial de cambios realizados</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tabla Modificada
+            </th>
+            <th>
+                Usuario modificado
+            </th>
+            <th>
+               Campo modificado
+            </th>
+            <th>
+                Estado Anterior
+            </th>
+            <th>
+                Cambio realizado
+            </th>
+            <th>
+                Fecha del cambio
+            </th>
+            <th>
+                Modificado por
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreTabla)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistroId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Campo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoAnterior)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoActual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCambio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdModificadoNavigation.NombreDeUsuario)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
