@@ -6,10 +6,12 @@
 
 <div class="d-flex align-items-center">
     <div class="flex-grow-1">
-        <h1></h1>
     </div>
     <div>
         <a href="@Url.Action("Create")" class="btn btn-primary ">Nuevo Doctor</a>
+    </div>
+    <div>
+        <a asp-controller="Especialidades" asp-action="Index" class="btn btn-primary ">Ver Especialidades</a>
     </div>
 </div>
 
@@ -25,7 +27,7 @@
 
 <table class="table">
     <thead>
-        <tr>
+        <tr class="container1">
             <th>
                 @Html.DisplayNameFor(model => model.Nombres)
             </th>
@@ -48,13 +50,15 @@
             <th>
                 Dia De labor
             </th>          
-            <th></th>
+            <th>
+                Opciones
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            <tr class="container1">
                 <td>
                     @Html.DisplayFor(modelItem => item.Nombres)
                 </td>

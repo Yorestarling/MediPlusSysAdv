@@ -1,12 +1,12 @@
 ﻿@model DataAccess.Especialidade
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Especialidades";
 }
 
-<h1>Edit</h1>
+<h1>Editar Especialidades</h1>
 
-<h4>Especialidade</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdEspecialidad" />
             <div class="form-group">
-                <label asp-for="NombreEspecialidad" class="control-label"></label>
+                <label asp-for="NombreEspecialidad" class="control-label">Nombre de la Especialidad</label>
                 <input asp-for="NombreEspecialidad" class="form-control" />
                 <span asp-validation-for="NombreEspecialidad" class="text-danger"></span>
             </div>

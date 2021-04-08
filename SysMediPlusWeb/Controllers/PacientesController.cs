@@ -9,35 +9,37 @@ using DataAccess;
 
 namespace SysMediPlusWeb.Controllers
 {
-    public class EspecialidadesController : Controller
+    public class PacientesController : Controller
     {
         private readonly MediPlusSysContext _context;
 
-        public EspecialidadesController(MediPlusSysContext context)
+        public PacientesController(MediPlusSysContext context)
         {
             _context = context;
         }
 
-        // GET: Especialidades
+        // GET: Pacientes
         public async Task<IActionResult> Index(string buscar = null)
         {
+
             ViewData[nameof(buscar)] = buscar;
 
             if (string.IsNullOrEmpty(buscar))
             {
-                 return View(await _context.Especialidades.ToListAsync());
+                var mediPlusSysContext = _context.Pacientes.Include(p => p.IdCargoNavigation);
+                return View(await mediPlusSysContext.ToListAsync());
             }
             else
             {
-
-                return View(await _context.Especialidades
-                    .Where(a => a.NombreEspecialidad.Contains(buscar)).ToListAsync());
+                var mediPlusSysContext = _context.Pacientes
+                    .Include(p => p.IdCargoNavigation)
+                    .Where(a=> a.Nombres.Contains(buscar));
+                return View(await mediPlusSysContext.ToListAsync());
             }
-
-           
+     
         }
 
-        // GET: Especialidades/Details/5
+        // GET: Pacientes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,39 +47,42 @@ namespace SysMediPlusWeb.Controllers
                 return NotFound();
             }
 
-            var especialidade = await _context.Especialidades
-                .FirstOrDefaultAsync(m => m.IdEspecialidad == id);
-            if (especialidade == null)
+            var paciente = await _context.Pacientes
+                .Include(p => p.IdCargoNavigation)
+                .FirstOrDefaultAsync(m => m.IdPaciente == id);
+            if (paciente == null)
             {
                 return NotFound();
             }
 
-            return View(especialidade);
+            return View(paciente);
         }
 
-        // GET: Especialidades/Create
+        // GET: Pacientes/Create
         public IActionResult Create()
         {
+            ViewData["IdCargo"] = new SelectList(_context.Cargos, "IdCargo", "NombreCargo");
             return View();
         }
 
-        // POST: Especialidades/Create
+        // POST: Pacientes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdEspecialidad,NombreEspecialidad")] Especialidade especialidade)
+        public async Task<IActionResult> Create([Bind("IdPaciente,Nombres,Apellidos,Cedula,FechaDeNacimiento,Sexo,CorreoElectronico,Provincia,Ciudad,Sector,Calle,Telefono,Celular,IdCargo")] Paciente paciente)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(especialidade);
+                _context.Add(paciente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(especialidade);
+            ViewData["IdCargo"] = new SelectList(_context.Cargos, "IdCargo", "NombreCargo", paciente.IdCargo);
+            return View(paciente);
         }
 
-        // GET: Especialidades/Edit/5
+        // GET: Pacientes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,22 +90,23 @@ namespace SysMediPlusWeb.Controllers
                 return NotFound();
             }
 
-            var especialidade = await _context.Especialidades.FindAsync(id);
-            if (especialidade == null)
+            var paciente = await _context.Pacientes.FindAsync(id);
+            if (paciente == null)
             {
                 return NotFound();
             }
-            return View(especialidade);
+            ViewData["IdCargo"] = new SelectList(_context.Cargos, "IdCargo", "NombreCargo", paciente.IdCargo);
+            return View(paciente);
         }
 
-        // POST: Especialidades/Edit/5
+        // POST: Pacientes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdEspecialidad,NombreEspecialidad")] Especialidade especialidade)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPaciente,Nombres,Apellidos,Cedula,FechaDeNacimiento,Sexo,CorreoElectronico,Provincia,Ciudad,Sector,Calle,Telefono,Celular,IdCargo")] Paciente paciente)
         {
-            if (id != especialidade.IdEspecialidad)
+            if (id != paciente.IdPaciente)
             {
                 return NotFound();
             }
@@ -109,12 +115,12 @@ namespace SysMediPlusWeb.Controllers
             {
                 try
                 {
-                    _context.Update(especialidade);
+                    _context.Update(paciente);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EspecialidadeExists(especialidade.IdEspecialidad))
+                    if (!PacienteExists(paciente.IdPaciente))
                     {
                         return NotFound();
                     }
@@ -125,10 +131,11 @@ namespace SysMediPlusWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(especialidade);
+            ViewData["IdCargo"] = new SelectList(_context.Cargos, "IdCargo", "NombreCargo", paciente.IdCargo);
+            return View(paciente);
         }
 
-        // GET: Especialidades/Delete/5
+        // GET: Pacientes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,30 +143,31 @@ namespace SysMediPlusWeb.Controllers
                 return NotFound();
             }
 
-            var especialidade = await _context.Especialidades
-                .FirstOrDefaultAsync(m => m.IdEspecialidad == id);
-            if (especialidade == null)
+            var paciente = await _context.Pacientes
+                .Include(p => p.IdCargoNavigation)
+                .FirstOrDefaultAsync(m => m.IdPaciente == id);
+            if (paciente == null)
             {
                 return NotFound();
             }
 
-            return View(especialidade);
+            return View(paciente);
         }
 
-        // POST: Especialidades/Delete/5
+        // POST: Pacientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var especialidade = await _context.Especialidades.FindAsync(id);
-            _context.Especialidades.Remove(especialidade);
+            var paciente = await _context.Pacientes.FindAsync(id);
+            _context.Pacientes.Remove(paciente);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EspecialidadeExists(int id)
+        private bool PacienteExists(int id)
         {
-            return _context.Especialidades.Any(e => e.IdEspecialidad == id);
+            return _context.Pacientes.Any(e => e.IdPaciente == id);
         }
     }
 }

@@ -4,23 +4,42 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Especialidades</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<<div class="d-flex align-items-center">
+    <div class="flex-grow-1">
+    </div>
+    <div>
+        <a href="@Url.Action("Create")" class="btn btn-primary ">Nueva Especialidad</a>
+    </div>
+    <div>
+        <a asp-controller="Doctores" asp-action="Index" class="btn btn-primary ">Volver Atras</a>
+    </div>
+</div>
+ <div>
+     <form method="get">
+
+         <input name="buscar" value="@ViewData["buscar"]" />
+         <button class="btn btn-dark" type="submit">BUSCAR</button>
+
+     </form>
+     <h9>Buscar por Nombre</h9>
+ </div>
+
 <table class="table">
     <thead>
-        <tr>
+        <tr class="container1">
             <th>
                 @Html.DisplayNameFor(model => model.NombreEspecialidad)
             </th>
-            <th></th>
+            <th>
+                Opciones
+            </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+        <tr class="container1">
             <td>
                 @Html.DisplayFor(modelItem => item.NombreEspecialidad)
             </td>
