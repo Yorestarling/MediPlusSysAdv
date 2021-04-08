@@ -63,6 +63,16 @@ namespace SysMediPlus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _283234 {
+            get {
+                object obj = ResourceManager.GetObject("283234", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap citas {
             get {
                 object obj = ResourceManager.GetObject("citas", resourceCulture);

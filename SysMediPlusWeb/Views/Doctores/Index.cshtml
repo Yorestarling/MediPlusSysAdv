@@ -1,10 +1,8 @@
 ﻿@model IEnumerable<DataAccess.Doctore>
 
 @{
-    ViewData["Title"] = "DOCTORES";
+    ViewData["Title"] = "Index";
 }
-
-<h1>DOCTORES</h1>
 
 <div class="d-flex align-items-center">
     <div class="flex-grow-1">
@@ -27,9 +25,9 @@
 
 <table class="table">
     <thead>
-        <tr class="container3">
+        <tr>
             <th>
-                Nombre
+                @Html.DisplayNameFor(model => model.Nombres)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Apellidos)
@@ -43,24 +41,22 @@
             <th>
                 @Html.DisplayNameFor(model => model.Celular)
             </th>
+           
             <th>
-                Especialidad
+               Especialidad
             </th>
             <th>
-                Hora de trabajo
-            </th>
-            <th>
-                Dia de trabajo
-            </th>
+                Dia De labor
+            </th>          
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr class="container3">
+            <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
+                    @Html.DisplayFor(modelItem => item.Nombres)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Apellidos)
@@ -74,18 +70,16 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Celular)
                 </td>
+               
                 <td>
                     @Html.DisplayFor(modelItem => item.IdEspecialidadNavigation.NombreEspecialidad)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdHorarioNavigation.NombreHorario)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.IddiaNavigation.NombreDia)
-                </td>
+                </td>             
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.IdDoctor">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.IdDoctor">Details</a>
+                    <a asp-action="Edit" asp-route-id="@item.IdDoctor">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdDoctor">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.IdDoctor">Delete</a>
                 </td>
             </tr>

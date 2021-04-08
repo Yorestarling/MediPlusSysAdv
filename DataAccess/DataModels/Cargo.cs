@@ -11,6 +11,8 @@ namespace DataAccess
         {
             Doctores = new HashSet<Doctore>();
             Pacientes = new HashSet<Paciente>();
+            Secretaria = new HashSet<Secretaria>();
+            Usuarios = new HashSet<Usuario>();
         }
 
         public int IdCargo { get; set; }
@@ -18,5 +20,7 @@ namespace DataAccess
 
         public virtual ICollection<Doctore> Doctores { get; set; }
         public virtual ICollection<Paciente> Pacientes { get; set; }
+        public virtual ICollection<Secretaria> Secretaria { get; set; }
+        public virtual ICollection<Usuario> Usuarios { get; set; }
     }
 }

@@ -19,22 +19,30 @@ namespace SysMediPlusWeb.Controllers
         }
 
         // GET: Doctores
-        public async Task<IActionResult> Index( string buscar = null)
+        public async Task<IActionResult> Index(string buscar = null)
         {
             ViewData[nameof(buscar)] = buscar;
 
             if (string.IsNullOrEmpty(buscar))
             {
-                var mediPlusSysContext = _context.Doctores.Include(d => d.IdCargoNavigation).Include(d => d.IdEspecialidadNavigation).Include(d => d.IdHorarioNavigation).Include(d => d.IddiaNavigation);
+                var mediPlusSysContext = _context.Doctores
+               .Include(d => d.IdCargoNavigation)
+               .Include(d => d.IdEspecialidadNavigation)
+               .Include(d => d.IddiaNavigation)
+               .Include(d => d.IdusuarioNavigation);
                 return View(await mediPlusSysContext.ToListAsync());
             }
             else
             {
-                var mediPlusSysContext = _context.Doctores.Include(d => d.IdCargoNavigation).Include(d => d.IdEspecialidadNavigation).Include(d => d.IdHorarioNavigation).Include(d => d.IddiaNavigation)
-                    .Where(a => a.Nombre.Contains(buscar) || a.Apellidos.Contains(buscar));
+                var mediPlusSysContext = _context.Doctores
+              .Include(d => d.IdCargoNavigation)
+              .Include(d => d.IdEspecialidadNavigation)
+              .Include(d => d.IddiaNavigation)
+              .Include(d => d.IdusuarioNavigation)
+              .Where(a=> a.Nombres.Contains(buscar));
                 return View(await mediPlusSysContext.ToListAsync());
             }
-            
+
         }
 
         // GET: Doctores/Details/5
@@ -48,8 +56,8 @@ namespace SysMediPlusWeb.Controllers
             var doctore = await _context.Doctores
                 .Include(d => d.IdCargoNavigation)
                 .Include(d => d.IdEspecialidadNavigation)
-                .Include(d => d.IdHorarioNavigation)
                 .Include(d => d.IddiaNavigation)
+                .Include(d => d.IdusuarioNavigation)
                 .FirstOrDefaultAsync(m => m.IdDoctor == id);
             if (doctore == null)
             {
@@ -64,8 +72,8 @@ namespace SysMediPlusWeb.Controllers
         {
             ViewData["IdCargo"] = new SelectList(_context.Cargos, "IdCargo", "NombreCargo");
             ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "IdEspecialidad", "NombreEspecialidad");
-            ViewData["IdHorario"] = new SelectList(_context.Horarios, "IdHorario", "NombreHorario");
             ViewData["Iddia"] = new SelectList(_context.Dias, "IdDia", "NombreDia");
+            ViewData["Idusuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Contraseña");
             return View();
         }
 
@@ -74,7 +82,7 @@ namespace SysMediPlusWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdDoctor,Nombre,Apellidos,IdEspecialidad,Sexo,Telefono,Celular,NombredeUsuario,Contraseña,IdHorario,Iddia,IdCargo")] Doctore doctore)
+        public async Task<IActionResult> Create([Bind("IdDoctor,Nombres,Apellidos,Sexo,Telefono,Celular,IdEspecialidad,Iddia,Idusuario,IdCargo")] Doctore doctore)
         {
             if (ModelState.IsValid)
             {
@@ -82,10 +90,10 @@ namespace SysMediPlusWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCargo"] = new SelectList(_context.Cargos, "IdCargo", "IdCargo", doctore.IdCargo);
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "IdEspecialidad", "IdEspecialidad", doctore.IdEspecialidad);
-            ViewData["IdHorario"] = new SelectList(_context.Horarios, "IdHorario", "IdHorario", doctore.IdHorario);
-            ViewData["Iddia"] = new SelectList(_context.Dias, "IdDia", "IdDia", doctore.Iddia);
+            ViewData["IdCargo"] = new SelectList(_context.Cargos, "IdCargo", "NombreCargo", doctore.IdCargoNavigation.NombreCargo);
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "IdEspecialidad", "NombreEspecialidad", doctore.IdEspecialidadNavigation.NombreEspecialidad);
+            ViewData["Iddia"] = new SelectList(_context.Dias, "IdDia", "NombreDia", doctore.IddiaNavigation.NombreDia);
+            ViewData["Idusuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Contraseña", doctore.IdusuarioNavigation.NombreDeUsuario);
             return View(doctore);
         }
 
@@ -104,8 +112,8 @@ namespace SysMediPlusWeb.Controllers
             }
             ViewData["IdCargo"] = new SelectList(_context.Cargos, "IdCargo", "NombreCargo", doctore.IdCargo);
             ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "IdEspecialidad", "NombreEspecialidad", doctore.IdEspecialidad);
-            ViewData["IdHorario"] = new SelectList(_context.Horarios, "IdHorario", "NombreHorario", doctore.IdHorario);
             ViewData["Iddia"] = new SelectList(_context.Dias, "IdDia", "NombreDia", doctore.Iddia);
+            ViewData["Idusuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Contraseña", doctore.Idusuario);
             return View(doctore);
         }
 
@@ -114,7 +122,7 @@ namespace SysMediPlusWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdDoctor,Nombre,Apellidos,IdEspecialidad,Sexo,Telefono,Celular,NombredeUsuario,Contraseña,IdHorario,Iddia,IdCargo")] Doctore doctore)
+        public async Task<IActionResult> Edit(int id, [Bind("IdDoctor,Nombres,Apellidos,Sexo,Telefono,Celular,IdEspecialidad,Iddia,Idusuario,IdCargo")] Doctore doctore)
         {
             if (id != doctore.IdDoctor)
             {
@@ -141,10 +149,10 @@ namespace SysMediPlusWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCargo"] = new SelectList(_context.Cargos, "IdCargo", "IdCargo", doctore.IdCargo);
-            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "IdEspecialidad", "IdEspecialidad", doctore.IdEspecialidad);
-            ViewData["IdHorario"] = new SelectList(_context.Horarios, "IdHorario", "IdHorario", doctore.IdHorario);
-            ViewData["Iddia"] = new SelectList(_context.Dias, "IdDia", "IdDia", doctore.Iddia);
+            ViewData["IdCargo"] = new SelectList(_context.Cargos, "IdCargo", "NombreCargo", doctore.IdCargo);
+            ViewData["IdEspecialidad"] = new SelectList(_context.Especialidades, "IdEspecialidad", "NombreEspecialidad", doctore.IdEspecialidad);
+            ViewData["Iddia"] = new SelectList(_context.Dias, "IdDia", "NombreDia", doctore.Iddia);
+            ViewData["Idusuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Contraseña", doctore.Idusuario);
             return View(doctore);
         }
 
@@ -159,8 +167,8 @@ namespace SysMediPlusWeb.Controllers
             var doctore = await _context.Doctores
                 .Include(d => d.IdCargoNavigation)
                 .Include(d => d.IdEspecialidadNavigation)
-                .Include(d => d.IdHorarioNavigation)
                 .Include(d => d.IddiaNavigation)
+                .Include(d => d.IdusuarioNavigation)
                 .FirstOrDefaultAsync(m => m.IdDoctor == id);
             if (doctore == null)
             {

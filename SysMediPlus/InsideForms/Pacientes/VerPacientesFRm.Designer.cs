@@ -30,11 +30,11 @@ namespace SysMediPlus.InsideForms
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewPacientes = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPacientes)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -47,15 +47,17 @@ namespace SysMediPlus.InsideForms
             this.label2.TabIndex = 13;
             this.label2.Text = "LISTA DE PACIENTES";
             // 
-            // dataGridView1
+            // dataGridViewPacientes
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 166);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1027, 345);
-            this.dataGridView1.TabIndex = 14;
+            this.dataGridViewPacientes.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dataGridViewPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPacientes.Location = new System.Drawing.Point(12, 166);
+            this.dataGridViewPacientes.Name = "dataGridViewPacientes";
+            this.dataGridViewPacientes.ReadOnly = true;
+            this.dataGridViewPacientes.RowHeadersWidth = 51;
+            this.dataGridViewPacientes.RowTemplate.Height = 29;
+            this.dataGridViewPacientes.Size = new System.Drawing.Size(1027, 345);
+            this.dataGridViewPacientes.TabIndex = 14;
             // 
             // button4
             // 
@@ -98,14 +100,15 @@ namespace SysMediPlus.InsideForms
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewPacientes);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximumSize = new System.Drawing.Size(1069, 625);
             this.MinimumSize = new System.Drawing.Size(1069, 625);
             this.Name = "VerPacientesFRm";
             this.Text = "Ver Pacientes";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.VerPacientesFRm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPacientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,7 +117,7 @@ namespace SysMediPlus.InsideForms
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewPacientes;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
