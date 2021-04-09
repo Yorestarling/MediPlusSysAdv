@@ -60,6 +60,7 @@ namespace SysMediPlus
             // 
             this.TxtContraseña.Location = new System.Drawing.Point(143, 213);
             this.TxtContraseña.Name = "TxtContraseña";
+            this.TxtContraseña.PasswordChar = '*';
             this.TxtContraseña.Size = new System.Drawing.Size(227, 27);
             this.TxtContraseña.TabIndex = 2;
             // 
