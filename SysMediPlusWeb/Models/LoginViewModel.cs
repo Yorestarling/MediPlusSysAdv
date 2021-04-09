@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,22 +13,19 @@ namespace SysMediPlusWeb.Models
     public class LoginViewModel
     {
 
-        [BindProperty]
-        public InputModel Input { get; set; }
+        [Required]
+        public string Usuario { get; set; }
 
-        [TempData]
-        public string ErrorMessage { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        public string Contraseña { get; set; }
 
-        public  class InputModel
-        {
-            [Required]
-            public string Usuario { get; set; }
+        public string command { get; set; }
 
-            [Required]
-            [DataType(DataType.Password)]
-            public string Contraseña { get; set; }
-        }
-        
+
+
 
     }
+
+    
 }
