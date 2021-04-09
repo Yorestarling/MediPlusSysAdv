@@ -14,6 +14,13 @@
     text-align: center;
 }
 
+
+.photosIndex2 {
+    padding-bottom: 8px;
+    list-style-image: url(../css/secre.jpg);
+    text-align: center;
+}
+
 .container1 {
     font-weight: normal;
     color: #000000;
@@ -34,4 +41,18 @@
     font-weight: 100;
     color: #ffffff;
     text-align: left;
+}
+
+.card{
+    margin-top: 70px;
+    max-width: 30%;
+    border: 1px solid #d7d7d7;
+    border-radius: 5pc;
+    padding: 10px;
+}
+
+@media screen and (max-width: 767px){
+    .carousel-caption{
+        display:none;
+    }
 }

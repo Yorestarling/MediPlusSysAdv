@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccess;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SysMediPlusWeb.Models;
 using System;
@@ -38,5 +39,17 @@ namespace SysMediPlusWeb.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult Administracion()
+        {
+            return View();
+        }
+
+
     }
 }

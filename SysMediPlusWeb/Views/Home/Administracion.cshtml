@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewData["Title"] = "Administracion";
+}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <section> 
+            <div>
+                <a asp-controller="Secretarias" asp-action="Index" class="btn btn-primary ">Ver Secretarias</a>
+                <a asp-controller="Usuarios" asp-action="Index" class="btn btn-primary ">Ver Usuarios</a>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<style>
+
+    .row{
+        margin-left: 140px ;
+    }
+    .btn {
+        border: none;
+        font-family: inherit;
+        font-size: inherit;
+        color: inherit;
+        background: none;
+        cursor: pointer;
+        padding: 25px 80px;
+        display: inline-block;
+        margin: 15px 50px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        outline: none;
+        position: center;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+        border: #fff;
+        
+    }
+
+        .btn:after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+            
+        }
+    /* Button 2 */
+    .btn-2 {
+        background: #0094ff;
+        color: #fff;
+        box-shadow: 0 6px #fff;
+        -webkit-transition: none;
+        -moz-transition: none;
+        transition: none;
+    }
+
+    /* Button 2a */
+    .btn-2a {
+        border-radius: 0 0 5px 5px;
+    }
+
+        .btn-2a:hover {
+            box-shadow: 0 4px #ab3c3c;
+            top: 2px;
+        }
+
+        .btn-2a:active {
+            box-shadow: 0 0 #ab3c3c;
+            top: 6px;
+        }
+
+
+    /* Button 2c */
+    .btn-2c {
+        border-radius: 5px;
+    }
+
+        .btn-2c:hover {
+            box-shadow: 0 4px #ab3c3c;
+            top: 2px;
+        }
+
+        .btn-2c:active {
+            box-shadow: 0 0 #ab3c3c;
+            top: 6px;
+        }
+
+   
+
+</style>
