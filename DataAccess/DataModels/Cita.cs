@@ -17,6 +17,8 @@ namespace DataAccess
         public string Motivo { get; set; }
         public int? IdEstado { get; set; }
 
+
+       
         public virtual Doctore IdDoctorNavigation { get; set; }
         public virtual Estado IdEstadoNavigation { get; set; }
         public virtual Paciente IdPacienteNavigation { get; set; }

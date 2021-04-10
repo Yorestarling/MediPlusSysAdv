@@ -60,5 +60,10 @@ namespace SysMediPlus.InsideForms
         {
             lblRegistros.Text = "REGISTROS: " + dataGridViewPacientes.RowCount;
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

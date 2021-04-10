@@ -49,7 +49,7 @@ namespace SysMediPlus.InsideForms.Doctores
                 else
                 {
 
-                    var std = new Doctore()
+                    var doc = new Doctore()
                     {
                         Nombres = TxtNombres.Text,
                         Apellidos = TxtApellidosD.Text,
@@ -61,7 +61,7 @@ namespace SysMediPlus.InsideForms.Doctores
                         Sexo = RbMasculino.Checked == true ? "M" : "F",
 
                     };
-                    context.Doctores.Add(std);
+                    context.Doctores.Add(doc);
                     context.SaveChanges();
 
 
@@ -128,6 +128,11 @@ namespace SysMediPlus.InsideForms.Doctores
         private void BtnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

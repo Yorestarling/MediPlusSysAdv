@@ -31,10 +31,10 @@ namespace SysMediPlus.InsideForms.Doctores
         {
             this.lblRegistros = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridViewPacientes = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPacientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,18 +57,6 @@ namespace SysMediPlus.InsideForms.Doctores
             this.TxtBuscar.TabIndex = 25;
             this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.button1.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(282, 99);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 31);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "BUSCAR";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.LightSlateGray;
@@ -80,6 +68,7 @@ namespace SysMediPlus.InsideForms.Doctores
             this.button4.TabIndex = 23;
             this.button4.Text = "ATRAS";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // dataGridViewPacientes
             // 
@@ -105,6 +94,18 @@ namespace SysMediPlus.InsideForms.Doctores
             this.label2.Size = new System.Drawing.Size(231, 28);
             this.label2.TabIndex = 21;
             this.label2.Text = "LISTA DE DOCTORES";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.button1.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(282, 99);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(182, 31);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "BUSCAR";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // VerDoctoresFrm
             // 
@@ -135,9 +136,9 @@ namespace SysMediPlus.InsideForms.Doctores
 
         private System.Windows.Forms.Label lblRegistros;
         private System.Windows.Forms.TextBox TxtBuscar;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridViewPacientes;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -19,10 +19,10 @@ namespace SysMediPlus.InsideForms
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MENU men = new MENU();
-            men.ShowDialog();
+            //MENU men = new MENU();
+            //men.ShowDialog();
 
-            //this.Close();            
+            this.Close();            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,6 +34,12 @@ namespace SysMediPlus.InsideForms
         private void button3_Click(object sender, EventArgs e)
         {
             FrmCrearPacientes pacientes = new FrmCrearPacientes();
+            pacientes.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmUpdatePacientes pacientes = new FrmUpdatePacientes();
             pacientes.ShowDialog();
         }
     }

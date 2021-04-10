@@ -27,5 +27,16 @@ namespace SysMediPlus.InsideForms.Citas
             VerCitasFRm cita = new VerCitasFRm();
             cita.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmUpdateCitas cit = new FrmUpdateCitas();
+            cit.ShowDialog();
+        }
     }
 }

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using DataAccess;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
 
 namespace SysMediPlus.InsideForms.Pacientes
 {
@@ -105,6 +106,33 @@ namespace SysMediPlus.InsideForms.Pacientes
         {
             InsertPacientes();
             limpiar();
+            //Correo();
+        }
+
+
+        private void Correo()
+        {
+            string CorreoO = "mediplusadv@gmail.com";
+            string CorreoD = "mediplusadv@gmail.com";
+            string Pass = "MediPlus2021";
+
+
+            MailMessage oMailMessage = new MailMessage(CorreoO, CorreoD, "Hola, Medi Plus le da la bienvenida", "<p> Su Usuario y contraseña es </p>");
+
+            oMailMessage.IsBodyHtml = true;
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Port = 587;
+            smtpClient.Credentials = new System.Net.NetworkCredential(CorreoO, Pass);
+
+            smtpClient.Send(oMailMessage);
+
+            smtpClient.Dispose();
+
+
         }
     }
 }

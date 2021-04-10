@@ -40,11 +40,11 @@ namespace SysMediPlus
                                 select o;
 
                     if (query.SingleOrDefault() != null)
-                    {                        
-                        MENU MN = new MENU();
-                        MN.Show();
-                        TxtContraseña.Clear();
-                        TxtUsuario.Clear();
+                    {
+                            MENU MN = new MENU();
+                            MN.Show();
+                            TxtContraseña.Clear();
+                            TxtUsuario.Clear();             
                     }
                     else
                     {
@@ -61,7 +61,7 @@ namespace SysMediPlus
 
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)13)//Enter key
+            if (e.KeyChar == (char)13)
                 TxtContraseña.Focus();
         }
 

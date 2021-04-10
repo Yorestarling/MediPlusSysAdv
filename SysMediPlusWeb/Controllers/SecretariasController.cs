@@ -66,7 +66,7 @@ namespace SysMediPlusWeb.Controllers
         public IActionResult Create()
         {
             ViewData["IdCargo"] = new SelectList(_context.Cargos, "IdCargo", "NombreCargo");
-            ViewData["Idusuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Contraseña");
+            ViewData["Idusuario"] = new SelectList(_context.Usuarios, "IdUsuario", "NombreDeUsuario");
             return View();
         }
 
@@ -84,7 +84,7 @@ namespace SysMediPlusWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdCargo"] = new SelectList(_context.Cargos, "IdCargo", "NombreCargo", secretaria.IdCargo);
-            ViewData["Idusuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Contraseña", secretaria.Idusuario);
+            ViewData["Idusuario"] = new SelectList(_context.Usuarios, "IdUsuario", "NombreDeUsuario", secretaria.Idusuario);
             return View(secretaria);
         }
 
@@ -102,7 +102,7 @@ namespace SysMediPlusWeb.Controllers
                 return NotFound();
             }
             ViewData["IdCargo"] = new SelectList(_context.Cargos, "IdCargo", "NombreCargo", secretaria.IdCargo);
-            ViewData["Idusuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Contraseña", secretaria.Idusuario);
+            ViewData["Idusuario"] = new SelectList(_context.Usuarios, "IdUsuario", "NombreDeUsuario", secretaria.Idusuario);
             return View(secretaria);
         }
 
@@ -139,7 +139,7 @@ namespace SysMediPlusWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdCargo"] = new SelectList(_context.Cargos, "IdCargo", "NombreCargo", secretaria.IdCargo);
-            ViewData["Idusuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Contraseña", secretaria.Idusuario);
+            ViewData["Idusuario"] = new SelectList(_context.Usuarios, "IdUsuario", "NombreDeUsuario", secretaria.Idusuario);
             return View(secretaria);
         }
 

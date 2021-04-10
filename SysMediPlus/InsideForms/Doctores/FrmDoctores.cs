@@ -26,5 +26,21 @@ namespace SysMediPlus.InsideForms.Doctores
             VerDoctoresFrm doctores = new VerDoctoresFrm();
             doctores.ShowDialog();
         }
+
+        private void BtnActualizarD_Click(object sender, EventArgs e)
+        {
+            FrmUpdate update = new FrmUpdate();
+            update.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
