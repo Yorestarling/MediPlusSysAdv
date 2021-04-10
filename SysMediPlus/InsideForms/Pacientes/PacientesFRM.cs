@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using SysMediPlus.InsideForms;
+using SysMediPlus.InsideForms.Pacientes;
 
 namespace SysMediPlus.InsideForms
 {
@@ -28,6 +29,12 @@ namespace SysMediPlus.InsideForms
         {
             VerPacientesFRm ver = new VerPacientesFRm();
             ver.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FrmCrearPacientes pacientes = new FrmCrearPacientes();
+            pacientes.ShowDialog();
         }
     }
 }

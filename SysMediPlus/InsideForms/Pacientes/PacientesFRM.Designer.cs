@@ -40,6 +40,7 @@ namespace SysMediPlus.InsideForms
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -56,6 +57,7 @@ namespace SysMediPlus.InsideForms
             this.button3.TabIndex = 8;
             this.button3.Text = "CREAR";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // pictureBox3
             // 
@@ -82,7 +84,7 @@ namespace SysMediPlus.InsideForms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Sofia Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(408, 156);
+            this.label2.Location = new System.Drawing.Point(405, 155);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(228, 28);
             this.label2.TabIndex = 12;
@@ -93,7 +95,7 @@ namespace SysMediPlus.InsideForms
             this.button1.BackColor = System.Drawing.Color.LightSlateGray;
             this.button1.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(431, 380);
+            this.button1.Location = new System.Drawing.Point(428, 379);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(182, 43);
             this.button1.TabIndex = 11;
@@ -105,7 +107,7 @@ namespace SysMediPlus.InsideForms
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(431, 198);
+            this.pictureBox1.Location = new System.Drawing.Point(428, 197);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(182, 176);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -158,12 +160,23 @@ namespace SysMediPlus.InsideForms
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Sofia Pro", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(424, 43);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(190, 41);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "PACIENTES";
+            // 
             // PACIENTES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(1051, 578);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
@@ -179,6 +192,7 @@ namespace SysMediPlus.InsideForms
             this.MaximumSize = new System.Drawing.Size(1069, 625);
             this.MinimumSize = new System.Drawing.Size(1069, 625);
             this.Name = "PACIENTES";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PACIENTES";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -200,5 +214,6 @@ namespace SysMediPlus.InsideForms
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label4;
     }
 }

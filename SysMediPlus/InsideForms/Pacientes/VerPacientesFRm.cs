@@ -20,28 +20,45 @@ namespace SysMediPlus.InsideForms
 
         private void VerPacientesFRm_Load(object sender, EventArgs e)
         {
+            Buscar();    
+        }
+
+        private void Buscar()
+        {
             using var db = new MediPlusSysContext();
 
+            var pac = db.Pacientes.ToList();
 
-            //dataGridView1.DataSource = db.Pacientes.ToList();
+            var List = (from p in pac
+                          where p.Nombres.ToLower().Contains(TxtBuscar.Text)
+                          select new
+                          {
+                             // ID = p.IdPaciente,
+                              Nombre = p.Nombres,
+                              Apellido = p.Apellidos,
+                              Sexo = p.Sexo,
+                              Correo = p.CorreoElectronico,
+                              Cedula = p.Cedula,
+                              Telefono = p.Telefono,
+                              Provincia = p.Provincia,
+                              Sector = p.Sector,
+                              Calle = p.Calle,
+                              //Estado = p.IdCargo.NombreCargo,
+
+                          }).ToList();
+            dataGridViewPacientes.DataSource = List;
 
 
-            var PacientesData = from c in db.Pacientes select c;
+        }
 
-            if (PacientesData != null)
-            {
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Buscar();
+        }
 
-                if (PacientesData.Count() > 0)
-                {
-                    dataGridViewPacientes.DataSource = PacientesData.ToList();
-                }
-                else
-                {
-                    MessageBox.Show("Nada");
-                    dataGridViewPacientes.DataSource = null;
-                }
-            }
-
+        private void dataGridViewPacientes_DataSourceChanged(object sender, EventArgs e)
+        {
+            lblRegistros.Text = "REGISTROS: " + dataGridViewPacientes.RowCount;
         }
     }
 }

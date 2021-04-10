@@ -33,7 +33,8 @@ namespace SysMediPlus.InsideForms
             this.dataGridViewPacientes = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.lblRegistros = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPacientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +59,7 @@ namespace SysMediPlus.InsideForms
             this.dataGridViewPacientes.RowTemplate.Height = 29;
             this.dataGridViewPacientes.Size = new System.Drawing.Size(1027, 345);
             this.dataGridViewPacientes.TabIndex = 14;
+            this.dataGridViewPacientes.DataSourceChanged += new System.EventHandler(this.dataGridViewPacientes_DataSourceChanged);
             // 
             // button4
             // 
@@ -83,13 +85,24 @@ namespace SysMediPlus.InsideForms
             this.button1.Text = "BUSCAR";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // TxtBuscar
             // 
-            this.textBox1.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(21, 117);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(255, 31);
-            this.textBox1.TabIndex = 19;
+            this.TxtBuscar.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TxtBuscar.Location = new System.Drawing.Point(21, 117);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(255, 31);
+            this.TxtBuscar.TabIndex = 19;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
+            // 
+            // lblRegistros
+            // 
+            this.lblRegistros.AutoSize = true;
+            this.lblRegistros.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRegistros.Location = new System.Drawing.Point(832, 139);
+            this.lblRegistros.Name = "lblRegistros";
+            this.lblRegistros.Size = new System.Drawing.Size(137, 24);
+            this.lblRegistros.TabIndex = 20;
+            this.lblRegistros.Text = "REGISTROS: 0";
             // 
             // VerPacientesFRm
             // 
@@ -97,7 +110,8 @@ namespace SysMediPlus.InsideForms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(1051, 578);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblRegistros);
+            this.Controls.Add(this.TxtBuscar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dataGridViewPacientes);
@@ -106,7 +120,8 @@ namespace SysMediPlus.InsideForms
             this.MaximumSize = new System.Drawing.Size(1069, 625);
             this.MinimumSize = new System.Drawing.Size(1069, 625);
             this.Name = "VerPacientesFRm";
-            this.Text = "Ver Pacientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "LISTADO DE PACIENTES";
             this.Load += new System.EventHandler(this.VerPacientesFRm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPacientes)).EndInit();
             this.ResumeLayout(false);
@@ -120,6 +135,7 @@ namespace SysMediPlus.InsideForms
         private System.Windows.Forms.DataGridView dataGridViewPacientes;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtBuscar;
+        private System.Windows.Forms.Label lblRegistros;
     }
 }

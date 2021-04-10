@@ -40,8 +40,7 @@ namespace SysMediPlus
                                 select o;
 
                     if (query.SingleOrDefault() != null)
-                    {
-                        //MessageBox.Show("You have been successfully logged in.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    {                        
                         MENU MN = new MENU();
                         MN.Show();
                         TxtContraseña.Clear();
