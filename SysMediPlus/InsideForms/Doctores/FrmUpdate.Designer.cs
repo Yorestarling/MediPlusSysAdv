@@ -39,7 +39,7 @@ namespace SysMediPlus.InsideForms.Doctores
             this.MaskCelular = new System.Windows.Forms.MaskedTextBox();
             this.MaskTelefono = new System.Windows.Forms.MaskedTextBox();
             this.BtnAgregarD = new System.Windows.Forms.Button();
-            this.CbTipoUsuario = new System.Windows.Forms.ComboBox();
+            this.CbCargo = new System.Windows.Forms.ComboBox();
             this.CBDiasLabor = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -99,7 +99,7 @@ namespace SysMediPlus.InsideForms.Doctores
             this.panel1.Controls.Add(this.MaskCelular);
             this.panel1.Controls.Add(this.MaskTelefono);
             this.panel1.Controls.Add(this.BtnAgregarD);
-            this.panel1.Controls.Add(this.CbTipoUsuario);
+            this.panel1.Controls.Add(this.CbCargo);
             this.panel1.Controls.Add(this.CBDiasLabor);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
@@ -187,13 +187,13 @@ namespace SysMediPlus.InsideForms.Doctores
             this.BtnAgregarD.UseVisualStyleBackColor = false;
             this.BtnAgregarD.Click += new System.EventHandler(this.BtnAgregarD_Click);
             // 
-            // CbTipoUsuario
+            // CbCargo
             // 
-            this.CbTipoUsuario.FormattingEnabled = true;
-            this.CbTipoUsuario.Location = new System.Drawing.Point(732, 210);
-            this.CbTipoUsuario.Name = "CbTipoUsuario";
-            this.CbTipoUsuario.Size = new System.Drawing.Size(236, 28);
-            this.CbTipoUsuario.TabIndex = 17;
+            this.CbCargo.FormattingEnabled = true;
+            this.CbCargo.Location = new System.Drawing.Point(732, 210);
+            this.CbCargo.Name = "CbCargo";
+            this.CbCargo.Size = new System.Drawing.Size(236, 28);
+            this.CbCargo.TabIndex = 17;
             // 
             // CBDiasLabor
             // 
@@ -409,7 +409,7 @@ namespace SysMediPlus.InsideForms.Doctores
         private System.Windows.Forms.MaskedTextBox MaskCelular;
         private System.Windows.Forms.MaskedTextBox MaskTelefono;
         private System.Windows.Forms.Button BtnAgregarD;
-        private System.Windows.Forms.ComboBox CbTipoUsuario;
+        private System.Windows.Forms.ComboBox CbCargo;
         private System.Windows.Forms.ComboBox CBDiasLabor;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;

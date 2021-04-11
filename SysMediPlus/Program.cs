@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SysMediPlus.InsideForms.Pacientes;
+using SysMediPlus.InsideForms.Doctores;
+using SysMediPlus.InsideForms.Citas;
 
 namespace SysMediPlus
 {

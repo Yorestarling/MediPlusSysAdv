@@ -134,5 +134,10 @@ namespace SysMediPlus.InsideForms.Pacientes
 
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

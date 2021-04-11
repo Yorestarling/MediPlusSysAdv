@@ -35,12 +35,6 @@ namespace SysMediPlus.InsideForms.Citas
             this.button4 = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblRegistros = new System.Windows.Forms.Label();
-            this.dataGridActuali = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.BtnAgregarD = new System.Windows.Forms.Button();
             this.DateFechaCita = new System.Windows.Forms.DateTimePicker();
             this.DateSolicitud = new System.Windows.Forms.DateTimePicker();
             this.TxtMotivo = new System.Windows.Forms.TextBox();
@@ -58,6 +52,12 @@ namespace SysMediPlus.InsideForms.Citas
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblRegistros = new System.Windows.Forms.Label();
+            this.BtnAgregarD = new System.Windows.Forms.Button();
+            this.dataGridActuali = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActuali)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -92,6 +92,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.button4.TabIndex = 44;
             this.button4.Text = "ATRAS";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // BtnLimpiar
             // 
@@ -104,6 +105,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.BtnLimpiar.TabIndex = 41;
             this.BtnLimpiar.Text = "Limpiar Campos";
             this.BtnLimpiar.UseVisualStyleBackColor = false;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
             // panel1
             // 
@@ -134,74 +136,6 @@ namespace SysMediPlus.InsideForms.Citas
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1541, 436);
             this.panel1.TabIndex = 43;
-            // 
-            // lblRegistros
-            // 
-            this.lblRegistros.AutoSize = true;
-            this.lblRegistros.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblRegistros.Location = new System.Drawing.Point(1386, 13);
-            this.lblRegistros.Name = "lblRegistros";
-            this.lblRegistros.Size = new System.Drawing.Size(137, 24);
-            this.lblRegistros.TabIndex = 38;
-            this.lblRegistros.Text = "REGISTROS: 0";
-            // 
-            // dataGridActuali
-            // 
-            this.dataGridActuali.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridActuali.BackgroundColor = System.Drawing.Color.LightSlateGray;
-            this.dataGridActuali.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridActuali.Location = new System.Drawing.Point(993, 40);
-            this.dataGridActuali.Name = "dataGridActuali";
-            this.dataGridActuali.ReadOnly = true;
-            this.dataGridActuali.RowHeadersWidth = 51;
-            this.dataGridActuali.RowTemplate.Height = 29;
-            this.dataGridActuali.Size = new System.Drawing.Size(530, 366);
-            this.dataGridActuali.TabIndex = 22;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Sofia Pro", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(532, 17);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(511, 41);
-            this.label4.TabIndex = 42;
-            this.label4.Text = "Formulario para actualizar citas\r\n";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(759, 76);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(117, 112);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 40;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(790, 344);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 63);
-            this.button1.TabIndex = 48;
-            this.button1.Text = "ELIMINAR";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // BtnAgregarD
-            // 
-            this.BtnAgregarD.BackColor = System.Drawing.Color.LimeGreen;
-            this.BtnAgregarD.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnAgregarD.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnAgregarD.Location = new System.Drawing.Point(520, 343);
-            this.BtnAgregarD.Name = "BtnAgregarD";
-            this.BtnAgregarD.Size = new System.Drawing.Size(189, 63);
-            this.BtnAgregarD.TabIndex = 47;
-            this.BtnAgregarD.Text = "ACTUALIZAR";
-            this.BtnAgregarD.UseVisualStyleBackColor = false;
             // 
             // DateFechaCita
             // 
@@ -361,6 +295,77 @@ namespace SysMediPlus.InsideForms.Citas
             this.label1.TabIndex = 50;
             this.label1.Text = "Paciente:";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button1.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(790, 344);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(189, 63);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "ELIMINAR";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // lblRegistros
+            // 
+            this.lblRegistros.AutoSize = true;
+            this.lblRegistros.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRegistros.Location = new System.Drawing.Point(1386, 13);
+            this.lblRegistros.Name = "lblRegistros";
+            this.lblRegistros.Size = new System.Drawing.Size(137, 24);
+            this.lblRegistros.TabIndex = 38;
+            this.lblRegistros.Text = "REGISTROS: 0";
+            // 
+            // BtnAgregarD
+            // 
+            this.BtnAgregarD.BackColor = System.Drawing.Color.LimeGreen;
+            this.BtnAgregarD.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnAgregarD.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BtnAgregarD.Location = new System.Drawing.Point(520, 343);
+            this.BtnAgregarD.Name = "BtnAgregarD";
+            this.BtnAgregarD.Size = new System.Drawing.Size(189, 63);
+            this.BtnAgregarD.TabIndex = 47;
+            this.BtnAgregarD.Text = "ACTUALIZAR";
+            this.BtnAgregarD.UseVisualStyleBackColor = false;
+            this.BtnAgregarD.Click += new System.EventHandler(this.BtnAgregarD_Click);
+            // 
+            // dataGridActuali
+            // 
+            this.dataGridActuali.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridActuali.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dataGridActuali.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridActuali.Location = new System.Drawing.Point(993, 40);
+            this.dataGridActuali.Name = "dataGridActuali";
+            this.dataGridActuali.ReadOnly = true;
+            this.dataGridActuali.RowHeadersWidth = 51;
+            this.dataGridActuali.RowTemplate.Height = 29;
+            this.dataGridActuali.Size = new System.Drawing.Size(530, 366);
+            this.dataGridActuali.TabIndex = 22;
+            this.dataGridActuali.DataSourceChanged += new System.EventHandler(this.dataGridActuali_DataSourceChanged);
+            this.dataGridActuali.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridActuali_CellDoubleClick);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Sofia Pro", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(532, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(511, 41);
+            this.label4.TabIndex = 42;
+            this.label4.Text = "Formulario para actualizar citas\r\n";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(759, 76);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(117, 112);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 40;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmUpdateCitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -379,6 +384,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.MinimumSize = new System.Drawing.Size(1583, 783);
             this.Name = "FrmUpdateCitas";
             this.Text = "ACTUALIZAR CIITAS";
+            this.Load += new System.EventHandler(this.FrmUpdateCitas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActuali)).EndInit();

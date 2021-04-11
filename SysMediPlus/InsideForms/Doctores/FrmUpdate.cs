@@ -16,7 +16,7 @@ namespace SysMediPlus.InsideForms.Doctores
         {
             InitializeComponent();
         }
-
+        private int iddoctores = 0;
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -34,7 +34,7 @@ namespace SysMediPlus.InsideForms.Doctores
                         where p.Nombres.ToLower().Contains(TxtBuscar.Text)
                         select new
                         {
-
+                            id = p.IdDoctor,
                             Nombre = p.Nombres,
                             Apellido = p.Apellidos,
                             Sexo = p.Sexo,
@@ -44,6 +44,7 @@ namespace SysMediPlus.InsideForms.Doctores
 
                         }).ToList();
             dataGridActuali.DataSource = List;
+            dataGridActuali.Columns[0].Visible = false;
 
         }
 
@@ -58,17 +59,24 @@ namespace SysMediPlus.InsideForms.Doctores
 
             using (var context = new MediPlusSysContext())
             {
-                var std = context.Doctores.First<Doctore>();
-                std.Nombres = TxtNombres.Text;
-                std.Apellidos = TxtApellidosD.Text;
-                std.Telefono = MaskTelefono.Text;
-                std.Celular = MaskCelular.Text;
-                std.IdEspecialidad = (int?)Convert.ToUInt32(CbEspecialidade.SelectedValue);
-                std.Iddia = (int?)Convert.ToUInt32(CBDiasLabor.SelectedValue);
-                std.IdCargo = (int)Convert.ToUInt32(CbTipoUsuario.SelectedValue);
-                std.Sexo = RbMasculino.Checked == true ? "M" : "F";
 
+                //iddoctores =Convert.ToInt32(dataGridActuali.SelectedCells[0].Value);
+
+
+                var Doc = context.Doctores.ToList().Find(e => e.IdDoctor == iddoctores);
+                Doc.Nombres = TxtNombres.Text;
+                Doc.Apellidos = TxtApellidosD.Text;
+                Doc.Telefono = MaskTelefono.Text;
+                Doc.Celular = MaskCelular.Text;
+                Doc.IdEspecialidad = (int?)Convert.ToUInt32(CbEspecialidade.SelectedValue);
+                Doc.Iddia = (int?)Convert.ToUInt32(CBDiasLabor.SelectedValue);
+                Doc.IdCargo = (int)Convert.ToUInt32(CbCargo.SelectedValue);
+                Doc.Sexo = RbMasculino.Checked == true ? "M" : "F";
+
+               // context.Doctores.Update(Doc);
                 context.SaveChanges();
+
+                MessageBox.Show("DOCTOR ACTUALIZADO", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -88,6 +96,68 @@ namespace SysMediPlus.InsideForms.Doctores
             Limpiar();
         }
 
+        
+
+        private void dataGridActuali_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            
+            try
+            {
+                using var db = new MediPlusSysContext();
+
+                iddoctores = Convert.ToInt32(dataGridActuali[0, dataGridActuali.CurrentRow.Index].Value);
+
+                var resultando = (from p in db.Doctores
+                                  where p.IdDoctor == iddoctores
+                                  select p).SingleOrDefault();
+
+                TxtNombres.Text = resultando.Nombres;
+                TxtApellidosD.Text = resultando.Apellidos;
+                MaskTelefono.Text = resultando.Telefono;
+                MaskCelular.Text = resultando.Celular;
+                CbEspecialidade.SelectedIndex = Convert.ToInt32(resultando.IdEspecialidad);
+                CBDiasLabor.SelectedIndex = Convert.ToInt32(resultando.Iddia);
+                CbCargo.SelectedIndex = Convert.ToInt32(resultando.IdCargo);
+
+                if (dataGridActuali[3, dataGridActuali.CurrentRow.Index].Value.ToString() == "M")
+                    RbMasculino.Checked = true;              
+                else
+                    RbFemenino.Checked = true;
+
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void BtnAgregarD_Click(object sender, EventArgs e)
+        {
+            Actualizar();
+            Limpiar();
+            BuscaGrid();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+
+        private void Eliminar()
+        {
+            using (var db = new MediPlusSysContext())
+            {
+                var Doc = db.Doctores.ToList().Find(e => e.IdDoctor == iddoctores);
+                db.Doctores.Remove(Doc);
+
+                db.SaveChanges();
+            }
+        }
+
+
         private void Limpiar()
         {
 
@@ -102,7 +172,7 @@ namespace SysMediPlus.InsideForms.Doctores
                 //OBJALQUI = null;
                 CbEspecialidade.SelectedIndex = 0;
                 CBDiasLabor.SelectedIndex = 0;
-                CbTipoUsuario.SelectedIndex = 0;
+                CbCargo.SelectedIndex = 0;
             }
 
         }
@@ -133,43 +203,11 @@ namespace SysMediPlus.InsideForms.Doctores
 
             var obj3 = new Cargo { IdCargo = 0, NombreCargo = "SELECCIONE" };
             USER.Insert(0, obj3);
-            CbTipoUsuario.DataSource = USER;
-            CbTipoUsuario.DisplayMember = "NombreCargo";
-            CbTipoUsuario.ValueMember = "IdCargo";
+            CbCargo.DataSource = USER;
+            CbCargo.DisplayMember = "NombreCargo";
+            CbCargo.ValueMember = "IdCargo";
 
 
-        }
-
-        private void dataGridActuali_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                TxtNombres.Text = dataGridActuali.CurrentRow.Cells[0].Value.ToString();
-                TxtApellidosD.Text = dataGridActuali.CurrentRow.Cells[1].Value.ToString();
-                MaskTelefono.Text = dataGridActuali.CurrentRow.Cells[2].Value.ToString();
-                MaskCelular.Text = dataGridActuali.CurrentRow.Cells[3].Value.ToString();            
-                CbEspecialidade.SelectedValue = dataGridActuali.CurrentRow.Cells[4].Value.ToString();
-                CBDiasLabor.SelectedValue = dataGridActuali.CurrentRow.Cells[5].Value.ToString();
-                CbTipoUsuario.SelectedValue = dataGridActuali.CurrentRow.Cells[6].Value.ToString();
-
-                //RbFemenino.Checked  == 'F' ? true : false;
-                //RbMasculino.Checked == 'M' ? true : false;
-
-            }
-            catch
-            {
-
-            }
-        }
-
-        private void BtnAgregarD_Click(object sender, EventArgs e)
-        {
-            Actualizar();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

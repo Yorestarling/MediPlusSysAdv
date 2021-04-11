@@ -43,7 +43,7 @@ namespace SysMediPlus.InsideForms
                               Provincia = p.Provincia,
                               Sector = p.Sector,
                               Calle = p.Calle,
-                              //Estado = p.IdCargo.NombreCargo,
+                             // Estado = p.IdCargoNavigation.NombreCargo,
 
                           }).ToList();
             dataGridViewPacientes.DataSource = List;

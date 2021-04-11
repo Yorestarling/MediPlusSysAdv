@@ -88,6 +88,7 @@ namespace SysMediPlus.InsideForms.Pacientes
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(255, 31);
             this.TxtBuscar.TabIndex = 45;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // button4
             // 
@@ -100,6 +101,7 @@ namespace SysMediPlus.InsideForms.Pacientes
             this.button4.TabIndex = 44;
             this.button4.Text = "ATRAS";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // BtnLimpiar
             // 
@@ -112,6 +114,7 @@ namespace SysMediPlus.InsideForms.Pacientes
             this.BtnLimpiar.TabIndex = 41;
             this.BtnLimpiar.Text = "Limpiar Campos";
             this.BtnLimpiar.UseVisualStyleBackColor = false;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
             // panel1
             // 
@@ -182,6 +185,7 @@ namespace SysMediPlus.InsideForms.Pacientes
             this.BtnAgregarD.TabIndex = 47;
             this.BtnAgregarD.Text = "ACTUALIZAR";
             this.BtnAgregarD.UseVisualStyleBackColor = false;
+            this.BtnAgregarD.Click += new System.EventHandler(this.BtnAgregarD_Click);
             // 
             // MaskCelular
             // 
@@ -422,6 +426,8 @@ namespace SysMediPlus.InsideForms.Pacientes
             this.dataGridActuali.RowTemplate.Height = 29;
             this.dataGridActuali.Size = new System.Drawing.Size(530, 366);
             this.dataGridActuali.TabIndex = 22;
+            this.dataGridActuali.DataSourceChanged += new System.EventHandler(this.dataGridActuali_DataSourceChanged);
+            this.dataGridActuali.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridActuali_CellDoubleClick);
             // 
             // label4
             // 
@@ -460,6 +466,7 @@ namespace SysMediPlus.InsideForms.Pacientes
             this.MinimumSize = new System.Drawing.Size(1583, 783);
             this.Name = "FrmUpdatePacientes";
             this.Text = "ACTUALIZAR DOCTORES";
+            this.Load += new System.EventHandler(this.FrmUpdatePacientes_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActuali)).EndInit();
