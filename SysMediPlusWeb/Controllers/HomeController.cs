@@ -59,30 +59,30 @@ namespace SysMediPlusWeb.Controllers
             return View();
 
         }
-       
+        /*
 
-       [HttpPost]
-        public ActionResult Login(LoginViewModel mod)
-        {
-            MediPlusSysContext db = new MediPlusSysContext();
+        [HttpPost]
+         public ActionResult Login(LoginViewModel mod)
+         {
+             MediPlusSysContext db = new MediPlusSysContext();
 
-            var output = db.Usuarios.FirstOrDefault(m => m.NombreDeUsuario == mod.Usuario && m.Contraseña == mod.Contraseña);
+             var output = db.Usuarios.FirstOrDefault(m => m.NombreDeUsuario == mod.Usuario && m.Contraseña == mod.Contraseña);
 
 
-            if(mod.command == "Iniciar")
-            {
-                if (output != null)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
-                }
-            }
+             if(mod.command == "Iniciar")
+             {
+                 if (output != null)
+                 {
+                     return RedirectToAction("Index", "Home");
+                 }
+                 else
+                 {
+                     ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+                 }
+             }
 
-            return View();
-        }
+             return View();
+         }*/
 
     }
 }
