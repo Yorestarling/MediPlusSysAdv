@@ -22,20 +22,17 @@ namespace SysMediPlus
 
         private void button3_Click(object sender, EventArgs e)
         {
-            PACIENTES pacientes = new PACIENTES();
-            pacientes.ShowDialog();   
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmDoctores doctores = new FrmDoctores();
-            doctores.ShowDialog();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmCitas citas = new FrmCitas();
-            citas.ShowDialog();
+           
         }
 
         private void MENU_Load(object sender, EventArgs e)
@@ -47,6 +44,24 @@ namespace SysMediPlus
                 LblSesion.Text = " " + Cidb.NombreDeUsuario;
             }
             
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FrmDoctores doctores = new FrmDoctores();
+            doctores.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FrmCitas citas = new FrmCitas();
+            citas.ShowDialog();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            PACIENTES pacientes = new PACIENTES();
+            pacientes.ShowDialog();
         }
     }
 }

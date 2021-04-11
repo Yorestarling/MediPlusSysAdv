@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -15,7 +16,9 @@ namespace DataAccess
         }
 
         public int IdUsuario { get; set; }
+        [Required(ErrorMessage = "Requiere el Nombre de Usuario")]
         public string NombreDeUsuario { get; set; }
+        [Required(ErrorMessage = "Requiere la Contraseña")]
         public string Contraseña { get; set; }
         public int? IdCargo { get; set; }
 

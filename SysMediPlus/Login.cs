@@ -30,21 +30,40 @@ namespace SysMediPlus
                 TxtUsuario.Focus();
                 return;
             }
+            else if (string.IsNullOrEmpty(TxtContraseña.Text))
+            {
+                MessageBox.Show("Ingresa tu Contraseña.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TxtContraseña.Focus();
+                return;
+            }
             try
             {
                 using (MediPlusSysContext test = new MediPlusSysContext())
                 {
 
                     var query = from o in test.Usuarios
-                                where o.NombreDeUsuario == TxtUsuario.Text && o.Contraseña == TxtContraseña.Text
+                                where o.NombreDeUsuario == TxtUsuario.Text && o.Contraseña == TxtContraseña.Text && o.IdCargo == 2
                                 select o;
 
-                    if (query.SingleOrDefault() != null)
+                    var query2 = from u in test.Usuarios
+                                where u.NombreDeUsuario == TxtUsuario.Text
+                                && u.Contraseña == TxtContraseña.Text 
+                                && u.IdCargo == 3 
+                                select u;
+
+                    if (query2.SingleOrDefault() != null)
                     {
                             MENU MN = new MENU();
                             MN.Show();
                             TxtContraseña.Clear();
                             TxtUsuario.Clear();             
+                    }
+                    else if (query.SingleOrDefault() != null)
+                    {
+                        Menu2 MN2 = new Menu2();
+                        MN2.Show();
+                        TxtContraseña.Clear();
+                        TxtUsuario.Clear();
                     }
                     else
                     {
@@ -75,7 +94,7 @@ namespace SysMediPlus
         {
             MENU MN = new MENU();
             MN.Show();
-            //DeskLogin();
+           // DeskLogin();
         }
     }
 }

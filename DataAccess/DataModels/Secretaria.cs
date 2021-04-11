@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -8,7 +9,9 @@ namespace DataAccess
     public partial class Secretaria
     {
         public int IdSecretaria { get; set; }
+        [Required(ErrorMessage = "Requiere el Nombre")]
         public string Nombres { get; set; }
+        [Required(ErrorMessage = "Requiere el Apellido")]
         public string Apellidos { get; set; }
         public string Sexo { get; set; }
         public string Telefono { get; set; }
