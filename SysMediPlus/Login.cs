@@ -92,9 +92,9 @@ namespace SysMediPlus
 
         private void BtnIniciar_Click(object sender, EventArgs e)
         {
-            MENU MN = new MENU();
-            MN.Show();
-           // DeskLogin();
+            //MENU MN = new MENU();
+            //MN.Show();
+            DeskLogin();
         }
     }
 }

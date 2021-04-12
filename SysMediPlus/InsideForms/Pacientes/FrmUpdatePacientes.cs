@@ -188,5 +188,35 @@ namespace SysMediPlus.InsideForms.Pacientes
 
             }
         }
+
+
+
+        private void Eliminar()
+        {
+
+
+
+            if (MessageBox.Show(@"¿QUIERES ELIMINAR ESTE PACIENTE?", @"Atención",
+                           MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (MessageBox.Show(@"¿EN REALIDAD ESTAS LO QUIERES HACER?", @"Atención",
+                           MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    using (var db = new MediPlusSysContext())
+                    {
+                        var Pac = db.Pacientes.ToList().Find(e => e.IdPaciente == Idpacientes);
+                        db.Pacientes.Remove(Pac);
+
+                        db.SaveChanges();
+                    }
+                }
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Eliminar();
+        }
     }
 }

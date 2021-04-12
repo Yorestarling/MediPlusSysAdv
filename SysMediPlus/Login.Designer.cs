@@ -41,24 +41,27 @@ namespace SysMediPlus
             // 
             // BtnIniciar
             // 
+            this.BtnIniciar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.BtnIniciar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnIniciar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.BtnIniciar.Location = new System.Drawing.Point(143, 337);
             this.BtnIniciar.Name = "BtnIniciar";
             this.BtnIniciar.Size = new System.Drawing.Size(227, 49);
             this.BtnIniciar.TabIndex = 0;
-            this.BtnIniciar.Text = "ENTRAR";
+            this.BtnIniciar.Text = "INICIAR SESIÓN";
             this.BtnIniciar.UseVisualStyleBackColor = true;
             this.BtnIniciar.Click += new System.EventHandler(this.BtnIniciar_Click);
             // 
             // TxtUsuario
             // 
-            this.TxtUsuario.Location = new System.Drawing.Point(143, 139);
+            this.TxtUsuario.Location = new System.Drawing.Point(143, 173);
             this.TxtUsuario.Name = "TxtUsuario";
             this.TxtUsuario.Size = new System.Drawing.Size(227, 27);
             this.TxtUsuario.TabIndex = 1;
             // 
             // TxtContraseña
             // 
-            this.TxtContraseña.Location = new System.Drawing.Point(143, 213);
+            this.TxtContraseña.Location = new System.Drawing.Point(143, 247);
             this.TxtContraseña.Name = "TxtContraseña";
             this.TxtContraseña.PasswordChar = '*';
             this.TxtContraseña.Size = new System.Drawing.Size(227, 27);
@@ -68,7 +71,7 @@ namespace SysMediPlus
             // 
             this.LblUsuario.AutoSize = true;
             this.LblUsuario.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblUsuario.Location = new System.Drawing.Point(216, 169);
+            this.LblUsuario.Location = new System.Drawing.Point(216, 203);
             this.LblUsuario.Name = "LblUsuario";
             this.LblUsuario.Size = new System.Drawing.Size(81, 24);
             this.LblUsuario.TabIndex = 3;
@@ -78,7 +81,7 @@ namespace SysMediPlus
             // 
             this.LblContraseña.AutoSize = true;
             this.LblContraseña.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblContraseña.Location = new System.Drawing.Point(198, 243);
+            this.LblContraseña.Location = new System.Drawing.Point(198, 277);
             this.LblContraseña.Name = "LblContraseña";
             this.LblContraseña.Size = new System.Drawing.Size(117, 24);
             this.LblContraseña.TabIndex = 4;
@@ -87,7 +90,7 @@ namespace SysMediPlus
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(194, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(194, 46);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(125, 109);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

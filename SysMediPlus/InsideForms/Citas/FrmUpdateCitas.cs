@@ -29,14 +29,15 @@ namespace SysMediPlus.InsideForms.Citas
             {
 
                 var Doc = context.Citas.ToList().Find(e => e.IdCita == idcitas);
-                Doc.IdPaciente = (int)Convert.ToUInt32(CbPaciente.SelectedValue);
-                Doc.IdDoctor = (int)Convert.ToUInt32(CbDoctor.SelectedValue);
-                Doc.FechaSolicitud = DateSolicitud.Value;
-                Doc.FechaCita = DateFechaCita.Value;
-                Doc.Tanda = RbManana.Checked == true ? "Mañana" : "Femenino";
+                Doc.IdPaciente = (int)(CbPaciente.SelectedValue);
+                Doc.IdDoctor = (int)(CbDoctor.SelectedValue);
+                Doc.FechaSolicitud = (DateTime)DateSolicitud.Value;
+                Doc.FechaCita = (DateTime)DateFechaCita.Value;
+                Doc.Tanda = RbManana.Checked == true ? "Mañana" : "Tarde";
                 Doc.Comentario = TxtComentario.Text;
                 Doc.Motivo = TxtMotivo.Text;              
-                Doc.IdEstado = (int?)Convert.ToUInt32(CBEstado.SelectedValue);
+                Doc.IdEstado = (int?)(CBEstado.SelectedValue);
+                
           
                 context.SaveChanges();
 
@@ -89,9 +90,11 @@ namespace SysMediPlus.InsideForms.Citas
                                   select p).SingleOrDefault();
                 TxtComentario.Text = resultando.Comentario;
                 TxtMotivo.Text = resultando.Motivo;
-                CbPaciente.SelectedIndex = Convert.ToInt32(resultando.IdPaciente);
-                CbDoctor.SelectedIndex = Convert.ToInt32(resultando.IdDoctor);
-                CBEstado.SelectedIndex = Convert.ToInt32(resultando.IdEstado);
+                CbPaciente.SelectedValue = Convert.ToInt32(resultando.IdPaciente);
+                CbDoctor.SelectedValue = Convert.ToInt32(resultando.IdDoctor);
+                CBEstado.SelectedValue = Convert.ToInt32(resultando.IdEstado);
+                DateFechaCita.Value = resultando.FechaCita;
+                DateSolicitud.Value = (DateTime)resultando.FechaSolicitud;
 
                 if (dataGridActuali[3, dataGridActuali.CurrentRow.Index].Value.ToString() == "Mañana")
                     RbManana.Checked = true;
@@ -192,6 +195,36 @@ namespace SysMediPlus.InsideForms.Citas
         {
             Actualizar();
             Limpiar();
+        }
+
+
+
+        private void Eliminar()
+        {
+
+
+
+            if (MessageBox.Show(@"¿QUIERES ELIMINAR ESTA CITA?", @"Atención",
+                           MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (MessageBox.Show(@"¿EN REALIDAD ESTAS LO QUIERES HACER?", @"Atención",
+                           MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    using (var db = new MediPlusSysContext())
+                    {
+                        var cit = db.Citas.ToList().Find(e => e.IdCita == idcitas);
+                        db.Citas.Remove(cit);
+
+                        db.SaveChanges();
+                    }
+                }
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Eliminar();
         }
     }
 }

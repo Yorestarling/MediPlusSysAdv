@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DataAccess;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace SysMediPlus.InsideForms.Doctores
 {
@@ -16,21 +17,28 @@ namespace SysMediPlus.InsideForms.Doctores
         {
             InitializeComponent();
         }
+
+        MediPlusSysContext db2;
+
         private int iddoctores = 0;
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
+    
 
         private void BuscaGrid()
         {
 
             using var db = new MediPlusSysContext();
+      
 
-            var pac = db.Doctores.ToList();
+            var pac2 = db.Doctores.Include(x => x.IdEspecialidadNavigation)
+                .Include(x=> x.IddiaNavigation).Include(x=> x.IdusuarioNavigation).ToList();
 
-            var List = (from p in pac
+            var List = (from p in pac2
                         where p.Nombres.ToLower().Contains(TxtBuscar.Text)
                         select new
                         {
@@ -40,7 +48,9 @@ namespace SysMediPlus.InsideForms.Doctores
                             Sexo = p.Sexo,
                             Telefono = p.Telefono,
                             Celular = p.Celular,
-                            //Especialidad = p.IdEspecialidadNavigation.NombreEspecialidad,
+                            Especialidad = p.IdEspecialidadNavigation.NombreEspecialidad,
+                            Dia_De_Labor = p.IddiaNavigation.NombreDia,
+                            
 
                         }).ToList();
             dataGridActuali.DataSource = List;
