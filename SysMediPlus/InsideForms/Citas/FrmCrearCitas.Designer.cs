@@ -318,7 +318,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.MinimumSize = new System.Drawing.Size(1119, 774);
             this.Name = "FrmCrearCitas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCrearCitas";
+            this.Text = "CREAR NUEVAS CITAS";
             this.Load += new System.EventHandler(this.FrmCrearCitas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

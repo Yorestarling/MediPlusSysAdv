@@ -31,10 +31,10 @@ namespace SysMediPlus.InsideForms.Citas
         {
             this.lblRegistros = new System.Windows.Forms.Label();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridViewPacientes = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPacientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,18 +56,6 @@ namespace SysMediPlus.InsideForms.Citas
             this.TxtBuscar.Size = new System.Drawing.Size(255, 31);
             this.TxtBuscar.TabIndex = 25;
             this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.button1.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(282, 99);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 31);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "BUSCAR";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
@@ -108,18 +96,29 @@ namespace SysMediPlus.InsideForms.Citas
             this.label2.TabIndex = 21;
             this.label2.Text = "LISTA DE CITAS";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(282, 106);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(222, 24);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "BUSCAR POR NOMBRE";
+            // 
             // VerCitasFRm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(1051, 578);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblRegistros);
             this.Controls.Add(this.TxtBuscar);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dataGridViewPacientes);
             this.Controls.Add(this.label2);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1069, 625);
             this.MinimumSize = new System.Drawing.Size(1069, 625);
             this.Name = "VerCitasFRm";
@@ -136,9 +135,9 @@ namespace SysMediPlus.InsideForms.Citas
 
         private System.Windows.Forms.Label lblRegistros;
         private System.Windows.Forms.TextBox TxtBuscar;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridViewPacientes;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

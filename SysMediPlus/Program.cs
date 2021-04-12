@@ -20,7 +20,7 @@ namespace SysMediPlus
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MENU());
+            Application.Run(new Login());
         }
     }
 }

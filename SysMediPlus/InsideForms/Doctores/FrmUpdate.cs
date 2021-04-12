@@ -236,7 +236,7 @@ namespace SysMediPlus.InsideForms.Doctores
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Eliminar();
+            //Eliminar();
             Limpiar();
             BuscaGrid();
         }

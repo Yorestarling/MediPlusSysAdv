@@ -9,6 +9,7 @@ using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
+
 namespace SysMediPlus
 {
     public partial class Login : Form
@@ -55,6 +56,8 @@ namespace SysMediPlus
                     {
                             MENU MN = new MENU();
                             MN.Show();
+                            //AdminD.admin = query2;
+
                             TxtContraseña.Clear();
                             TxtUsuario.Clear();             
                     }
@@ -62,6 +65,7 @@ namespace SysMediPlus
                     {
                         Menu2 MN2 = new Menu2();
                         MN2.Show();
+                        //AdminD.admin = query;
                         TxtContraseña.Clear();
                         TxtUsuario.Clear();
                     }

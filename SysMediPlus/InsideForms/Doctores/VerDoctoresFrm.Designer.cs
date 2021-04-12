@@ -34,7 +34,7 @@ namespace SysMediPlus.InsideForms.Doctores
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridViewPacientes = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPacientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,17 +96,15 @@ namespace SysMediPlus.InsideForms.Doctores
             this.label2.TabIndex = 21;
             this.label2.Text = "LISTA DE DOCTORES";
             // 
-            // button1
+            // label1
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.button1.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(282, 99);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 31);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "BUSCAR";
-            this.button1.UseVisualStyleBackColor = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(282, 106);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(222, 24);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "BUSCAR POR NOMBRE";
             // 
             // VerDoctoresFrm
             // 
@@ -114,9 +112,9 @@ namespace SysMediPlus.InsideForms.Doctores
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(1051, 578);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblRegistros);
             this.Controls.Add(this.TxtBuscar);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.dataGridViewPacientes);
             this.Controls.Add(this.label2);
@@ -140,6 +138,6 @@ namespace SysMediPlus.InsideForms.Doctores
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridViewPacientes;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }

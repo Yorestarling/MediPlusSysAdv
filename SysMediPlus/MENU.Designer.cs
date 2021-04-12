@@ -39,6 +39,7 @@ namespace SysMediPlus
             this.button4 = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.LblSesion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -147,12 +148,23 @@ namespace SysMediPlus
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // LblSesion
+            // 
+            this.LblSesion.AutoSize = true;
+            this.LblSesion.Font = new System.Drawing.Font("Sofia Pro", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblSesion.Location = new System.Drawing.Point(844, 12);
+            this.LblSesion.Name = "LblSesion";
+            this.LblSesion.Size = new System.Drawing.Size(92, 21);
+            this.LblSesion.TabIndex = 27;
+            this.LblSesion.Text = "Sesion de: ";
+            // 
             // MENU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(1051, 578);
+            this.Controls.Add(this.LblSesion);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button3);
@@ -191,5 +203,6 @@ namespace SysMediPlus
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label LblSesion;
     }
 }

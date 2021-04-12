@@ -198,6 +198,7 @@ namespace SysMediPlus.InsideForms.Citas
         {
             Actualizar();
             Limpiar();
+            BuscaGrid();
         }
 
 

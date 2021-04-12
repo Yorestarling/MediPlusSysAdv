@@ -39,9 +39,13 @@ namespace SysMediPlus
         {
             using (var db = new MediPlusSysContext())
             {
-                var Cidb = new Usuario();
 
-                //LblSesion.Text = " " + Cidb.NombreDeUsuario;
+                //var o = new Usuario();
+
+                //var pac2 = db.Usuarios.ToList().Find(X=>X.NombreDeUsuario == o.NombreDeUsuario);
+
+
+                //LblSesion.Text = " " + pac2;
             }
             
         }

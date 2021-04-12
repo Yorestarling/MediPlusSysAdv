@@ -192,7 +192,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.MinimumSize = new System.Drawing.Size(1069, 625);
             this.Name = "FrmCitas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCitas";
+            this.Text = "CITAS";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

@@ -384,7 +384,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.MaximumSize = new System.Drawing.Size(1583, 783);
             this.MinimumSize = new System.Drawing.Size(1583, 783);
             this.Name = "FrmUpdateCitas";
-            this.Text = "ACTUALIZAR CIITAS";
+            this.Text = "ACTUALIZAR CITAS";
             this.Load += new System.EventHandler(this.FrmUpdateCitas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
