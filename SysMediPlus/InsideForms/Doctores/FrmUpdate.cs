@@ -148,14 +148,28 @@ namespace SysMediPlus.InsideForms.Doctores
 
         private void Eliminar()
         {
-            using (var db = new MediPlusSysContext())
-            {
-                var Doc = db.Doctores.ToList().Find(e => e.IdDoctor == iddoctores);
-                db.Doctores.Remove(Doc);
 
-                db.SaveChanges();
+
+
+            if (MessageBox.Show(@"Esta seguro que desea eliminar el Doctor?", @"Atención",
+                           MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (MessageBox.Show(@"EN REALIDAD ESTAS SEGURO?", @"Atención",
+                           MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    using (var db = new MediPlusSysContext())
+                    {
+                        var Doc = db.Doctores.ToList().Find(e => e.IdDoctor == iddoctores);
+                        db.Doctores.Remove(Doc);
+
+                        db.SaveChanges();
+                    }
+                }
             }
+
         }
+
+
 
 
         private void Limpiar()
@@ -208,6 +222,13 @@ namespace SysMediPlus.InsideForms.Doctores
             CbCargo.ValueMember = "IdCargo";
 
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Eliminar();
+            Limpiar();
+            BuscaGrid();
         }
     }
 }

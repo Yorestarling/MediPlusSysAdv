@@ -208,6 +208,8 @@ namespace DataAccess
 
                 entity.Property(e => e.Precio).HasColumnType("money");
 
+                entity.Property(e => e.Comentario).IsUnicode(false);
+
                 entity.HasOne(d => d.IdFacturaNavigation)
                     .WithMany(p => p.FacturasDetalles)
                     .HasForeignKey(d => d.IdFactura)
