@@ -22,20 +22,23 @@ namespace SysMediPlus.InsideForms.Citas
         {
             using var db = new MediPlusSysContext();
 
-            var pac = db.Citas.ToList();
+            
 
-            var List = (from p in pac
-                        where p.Tanda.ToLower().Contains(TxtBuscar.Text)
+            var pac2 = db.Citas.Include(x => x.IdDoctorNavigation)
+                .Include(x => x.IdPacienteNavigation).Include(x => x.IdEstadoNavigation).ToList();
+
+            var List = (from p in pac2
+                        where p.IdPacienteNavigation.Nombres.ToLower().Contains(TxtBuscar.Text)
                         select new
                         {
                             // ID = p.IdPaciente,
-                            Paciente = p.IdPaciente,
-                            Doctor = p.IdDoctor,
+                            Paciente = p.IdPacienteNavigation.Nombres+' '+p.IdPacienteNavigation.Apellidos,
+                            Doctor = p.IdDoctorNavigation.Nombres+' '+p.IdDoctorNavigation.Apellidos,
                             Fecha_De_La_Cita = p.FechaCita,
                             Fecha_Solicitud = p.FechaSolicitud,
                             Motivo = p.Motivo,
                             Comentario = p.Comentario,             
-                            //Estado = p.IdCargo.NombreCargo,
+                            Estado = p.IdEstadoNavigation.NombreEstado,
 
                         }).ToList();
             dataGridViewPacientes.DataSource = List;

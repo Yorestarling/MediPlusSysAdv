@@ -27,13 +27,13 @@ namespace SysMediPlus.InsideForms
         {
             using var db = new MediPlusSysContext();
 
-            var pac = db.Pacientes.ToList();
+            var pac2 = db.Pacientes.Include(x => x.IdCargoNavigation).ToList();
 
-            var List = (from p in pac
-                          where p.Nombres.ToLower().Contains(TxtBuscar.Text)
+            var List = (from p in pac2
+                        where p.Nombres.ToLower().Contains(TxtBuscar.Text)
                           select new
                           {
-                             // ID = p.IdPaciente,
+                              //ID = p.IdPaciente,
                               Nombre = p.Nombres,
                               Apellido = p.Apellidos,
                               Sexo = p.Sexo,
@@ -43,10 +43,11 @@ namespace SysMediPlus.InsideForms
                               Provincia = p.Provincia,
                               Sector = p.Sector,
                               Calle = p.Calle,
-                             // Estado = p.IdCargoNavigation.NombreCargo,
+                              Tipo_Usuario = p.IdCargoNavigation.NombreCargo,
 
                           }).ToList();
             dataGridViewPacientes.DataSource = List;
+            //dataGridViewPacientes.Columns[0].Visible = true;
 
 
         }

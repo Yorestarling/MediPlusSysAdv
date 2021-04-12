@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DataAccess;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace SysMediPlus.InsideForms.Pacientes
 {
@@ -57,9 +58,9 @@ namespace SysMediPlus.InsideForms.Pacientes
 
             using var db = new MediPlusSysContext();
 
-            var pac = db.Pacientes.ToList();
+            var pac2 = db.Pacientes.Include(x => x.IdCargoNavigation).ToList();
 
-            var List = (from p in pac
+            var List = (from p in pac2
                         where p.Nombres.ToLower().Contains(TxtBuscar.Text)
                         select new
                         {
@@ -75,7 +76,7 @@ namespace SysMediPlus.InsideForms.Pacientes
                             Calle = p.Calle,
                             Telefono = p.Telefono,
                             Celular = p.Celular,
-                            TipoDUsuario = p.IdCargo
+                            TipoDUsuario = p.IdCargoNavigation.NombreCargo
 
                         }).ToList();
             dataGridActuali.DataSource = List;
@@ -217,6 +218,8 @@ namespace SysMediPlus.InsideForms.Pacientes
         private void button1_Click(object sender, EventArgs e)
         {
             Eliminar();
+            BuscaGrid();
+            limpiar();
         }
     }
 }

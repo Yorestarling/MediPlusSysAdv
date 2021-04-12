@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DataAccess;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace SysMediPlus.InsideForms.Citas
 {
@@ -57,21 +58,23 @@ namespace SysMediPlus.InsideForms.Citas
 
             using var db = new MediPlusSysContext();
 
-            var pac = db.Citas.ToList();
+            var pac2 = db.Citas.Include(x => x.IdDoctorNavigation)
+                .Include(x => x.IdPacienteNavigation).Include(x => x.IdEstadoNavigation).ToList();
 
-            var List = (from p in pac
+            var List = (from p in pac2
                         where p.IdDoctor.ToString().Contains(TxtBuscar.Text)
                         select new
                         {
                             id = p.IdCita,
-                            Doctor  = p.IdDoctor,
-                            Paciente = p.IdPaciente,
+                            Doctor  = p.IdDoctorNavigation.Nombres+' '+p.IdDoctorNavigation.Apellidos,
+                            Paciente = p.IdPacienteNavigation.Nombres+' '+p.IdPacienteNavigation.Apellidos,
                             FechaSolicitud = p.FechaSolicitud,
                             FechaCita = p.FechaCita,
                             Comentario = p.Comentario,
                             Motivo = p.Motivo,
-                            Estado = p.IdEstado        
+                            Estado = p.IdEstadoNavigation.NombreEstado        
                         }).ToList();
+
             dataGridActuali.DataSource = List;
             dataGridActuali.Columns[0].Visible = false;
 
