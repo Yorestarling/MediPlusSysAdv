@@ -41,7 +41,7 @@ namespace SysMediPlus
             {
                 var Cidb = new Usuario();
 
-                LblSesion.Text = " " + Cidb.NombreDeUsuario;
+                //LblSesion.Text = " " + Cidb.NombreDeUsuario;
             }
             
         }
@@ -62,6 +62,11 @@ namespace SysMediPlus
         {
             PACIENTES pacientes = new PACIENTES();
             pacientes.ShowDialog();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

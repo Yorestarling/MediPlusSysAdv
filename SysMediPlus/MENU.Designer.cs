@@ -31,7 +31,6 @@ namespace SysMediPlus
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MENU));
             this.label1 = new System.Windows.Forms.Label();
-            this.LblSesion = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -39,10 +38,12 @@ namespace SysMediPlus
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,16 +55,6 @@ namespace SysMediPlus
             this.label1.Size = new System.Drawing.Size(112, 41);
             this.label1.TabIndex = 0;
             this.label1.Text = "MENU";
-            // 
-            // LblSesion
-            // 
-            this.LblSesion.AutoSize = true;
-            this.LblSesion.Font = new System.Drawing.Font("Sofia Pro", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblSesion.Location = new System.Drawing.Point(854, 21);
-            this.LblSesion.Name = "LblSesion";
-            this.LblSesion.Size = new System.Drawing.Size(92, 21);
-            this.LblSesion.TabIndex = 8;
-            this.LblSesion.Text = "Sesion de: ";
             // 
             // pictureBox1
             // 
@@ -145,12 +136,24 @@ namespace SysMediPlus
             this.pictureBox6.TabIndex = 19;
             this.pictureBox6.TabStop = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(57, 41);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 26;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // MENU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(1051, 578);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.pictureBox3);
@@ -158,7 +161,6 @@ namespace SysMediPlus
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.LblSesion);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximizeBox = false;
@@ -172,6 +174,7 @@ namespace SysMediPlus
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,7 +183,6 @@ namespace SysMediPlus
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label LblSesion;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -188,5 +190,6 @@ namespace SysMediPlus
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
