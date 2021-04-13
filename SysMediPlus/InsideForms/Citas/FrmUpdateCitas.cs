@@ -209,8 +209,6 @@ namespace SysMediPlus.InsideForms.Citas
         private void Eliminar()
         {
 
-
-
             if (MessageBox.Show(@"¿QUIERES ELIMINAR ESTA CITA?", @"Atención",
                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -231,7 +229,7 @@ namespace SysMediPlus.InsideForms.Citas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Eliminar();
+            
         }
     }
 }

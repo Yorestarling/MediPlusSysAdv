@@ -32,8 +32,7 @@ namespace SysMediPlus.InsideForms.Citas
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCrearCitas));
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.TxtFin = new System.Windows.Forms.TextBox();
-            this.TxtHoraInicio = new System.Windows.Forms.TextBox();
+            this.LbBoxInicio = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.DateFechaCita = new System.Windows.Forms.DateTimePicker();
             this.TxtMotivo = new System.Windows.Forms.TextBox();
@@ -55,6 +54,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.lbboxFin = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -77,8 +77,8 @@ namespace SysMediPlus.InsideForms.Citas
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.panel1.Controls.Add(this.TxtFin);
-            this.panel1.Controls.Add(this.TxtHoraInicio);
+            this.panel1.Controls.Add(this.lbboxFin);
+            this.panel1.Controls.Add(this.LbBoxInicio);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.DateFechaCita);
             this.panel1.Controls.Add(this.TxtMotivo);
@@ -102,19 +102,23 @@ namespace SysMediPlus.InsideForms.Citas
             this.panel1.Size = new System.Drawing.Size(1077, 438);
             this.panel1.TabIndex = 32;
             // 
-            // TxtFin
+            // LbBoxInicio
             // 
-            this.TxtFin.Location = new System.Drawing.Point(209, 332);
-            this.TxtFin.Name = "TxtFin";
-            this.TxtFin.Size = new System.Drawing.Size(270, 27);
-            this.TxtFin.TabIndex = 5;
-            // 
-            // TxtHoraInicio
-            // 
-            this.TxtHoraInicio.Location = new System.Drawing.Point(209, 272);
-            this.TxtHoraInicio.Name = "TxtHoraInicio";
-            this.TxtHoraInicio.Size = new System.Drawing.Size(270, 27);
-            this.TxtHoraInicio.TabIndex = 4;
+            this.LbBoxInicio.FormattingEnabled = true;
+            this.LbBoxInicio.ItemHeight = 20;
+            this.LbBoxInicio.Items.AddRange(new object[] {
+            "Seleccione la hora de inicio",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "14:00",
+            "15:00",
+            "16:00"});
+            this.LbBoxInicio.Location = new System.Drawing.Point(209, 272);
+            this.LbBoxInicio.Name = "LbBoxInicio";
+            this.LbBoxInicio.Size = new System.Drawing.Size(270, 24);
+            this.LbBoxInicio.TabIndex = 25;
             // 
             // label10
             // 
@@ -157,7 +161,7 @@ namespace SysMediPlus.InsideForms.Citas
             // RbTarde
             // 
             this.RbTarde.AutoSize = true;
-            this.RbTarde.Location = new System.Drawing.Point(376, 389);
+            this.RbTarde.Location = new System.Drawing.Point(378, 388);
             this.RbTarde.Name = "RbTarde";
             this.RbTarde.Size = new System.Drawing.Size(66, 24);
             this.RbTarde.TabIndex = 7;
@@ -168,7 +172,7 @@ namespace SysMediPlus.InsideForms.Citas
             // RbManana
             // 
             this.RbManana.AutoSize = true;
-            this.RbManana.Location = new System.Drawing.Point(201, 388);
+            this.RbManana.Location = new System.Drawing.Point(209, 387);
             this.RbManana.Name = "RbManana";
             this.RbManana.Size = new System.Drawing.Size(83, 24);
             this.RbManana.TabIndex = 6;
@@ -326,6 +330,24 @@ namespace SysMediPlus.InsideForms.Citas
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // lbboxFin
+            // 
+            this.lbboxFin.FormattingEnabled = true;
+            this.lbboxFin.ItemHeight = 20;
+            this.lbboxFin.Items.AddRange(new object[] {
+            "Seleccione la hora de fin",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "15:00",
+            "16:00",
+            "17:00"});
+            this.lbboxFin.Location = new System.Drawing.Point(209, 335);
+            this.lbboxFin.Name = "lbboxFin";
+            this.lbboxFin.Size = new System.Drawing.Size(270, 24);
+            this.lbboxFin.TabIndex = 26;
+            // 
             // FrmCrearCitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -376,8 +398,8 @@ namespace SysMediPlus.InsideForms.Citas
         private System.Windows.Forms.RadioButton RbManana;
         private System.Windows.Forms.DateTimePicker DateFechaCita;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox TxtFin;
-        private System.Windows.Forms.TextBox TxtHoraInicio;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListBox LbBoxInicio;
+        private System.Windows.Forms.ListBox lbboxFin;
     }
 }

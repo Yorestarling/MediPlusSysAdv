@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Net.Mail;
 
 namespace SysMediPlus.InsideForms.Citas
 {
@@ -23,7 +24,7 @@ namespace SysMediPlus.InsideForms.Citas
             llenarCombo();
         }
 
-        int cout = 0;
+        
         private void InsertarCita()
         {
 
@@ -32,9 +33,14 @@ namespace SysMediPlus.InsideForms.Citas
                 
                 if (CbPaciente.SelectedIndex == 0 || CbDoctor.SelectedIndex == 0)
                 {
-                    MessageBox.Show("AUN NO SE HA SELECCIONADO UN PACIENTE O DOCTOR");
+                    MessageBox.Show("AUN NO SE HA SELECCIONADO UN PACIENTE O DOCTOR", "Operacion Erronea", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
-                }           
+                }
+                if (LbBoxInicio.Text == lbboxFin.Text)
+                {
+                    MessageBox.Show("LA FECHA DE INICIO ES IGUAL A LA DE FIN", "Operacion Erronea", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 else
                 {
                    
@@ -45,8 +51,8 @@ namespace SysMediPlus.InsideForms.Citas
                         IdPaciente = (int)Convert.ToUInt32(CbPaciente.SelectedValue),
                         IdDoctor = (int)Convert.ToUInt32(CbDoctor.SelectedValue),                     
                         FechaCita =DateFechaCita.Value.Date,
-                        HoraInicio = TxtHoraInicio.Text,
-                        HoraFin = TxtFin.Text,
+                        HoraInicio = LbBoxInicio.Text,
+                        HoraFin = lbboxFin.Text,
                         Comentario = TxtComentario.Text,
                         Motivo = TxtMotivo.Text,
                         IdEstado = (int)Convert.ToUInt32(CBEstado.SelectedValue),
@@ -54,21 +60,26 @@ namespace SysMediPlus.InsideForms.Citas
 
                     };
 
-                    if (DateFechaCita.Value.Date == Cidb.FechaCita && TxtHoraInicio.Text == Cidb.HoraInicio)
+                    var query = from o in context.Citas
+                                where o.FechaCita == DateFechaCita.Value.Date 
+                                && o.HoraInicio == LbBoxInicio.Text                           
+                                select o;
+
+                   
+
+                    if (query.SingleOrDefault() != null)
                     {
-                        MessageBox.Show("NO SE PUEDE");
+                        MessageBox.Show("NO SE PUEDE REGISTRAR UNA CITA A ESTA HORA", "Operacion Erronea", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        cout++;
+
                         context.Citas.Add(Cidb);
                         context.SaveChanges();
-                        MessageBox.Show("CITA AGREGADO", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        MessageBox.Show("CITA AGREGADA", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
-
-
         }
 
         private void llenarCombo()
@@ -108,8 +119,8 @@ namespace SysMediPlus.InsideForms.Citas
 
 
 
-            var obj3 = new Estado { IdEstados = 0, NombreEstado = "SELECCIONE" };
-            stat.Insert(0, obj3);
+            var obj3 = new Estado { IdEstados = 1, NombreEstado = "SELECCIONE" };
+            stat.Insert(1, obj3);
             CBEstado.DataSource = stat;
             CBEstado.DisplayMember = "NombreEstado";
             CBEstado.ValueMember = "IdEstados";
@@ -140,6 +151,7 @@ namespace SysMediPlus.InsideForms.Citas
         private void BtnAgregarD_Click(object sender, EventArgs e)
         {
             InsertarCita();
+            Correo();
             limpiar();
         }
 
@@ -152,5 +164,38 @@ namespace SysMediPlus.InsideForms.Citas
         {
             this.Close();
         }
+
+        private void Correo()
+        {
+            using var context = new MediPlusSysContext();
+           
+
+                var query = from o in context.Pacientes
+                        where o.IdPaciente == (int)CbPaciente.SelectedValue
+                        select o.CorreoElectronico;
+
+            string CorreoO = "Mediplusadv@outlook.com";
+            string CorreoD = query.SingleOrDefault();
+            string Pass = "medi1234";
+
+
+            MailMessage oMailMessage = new MailMessage(CorreoO, CorreoD, "Hola, Medi Plus confirma su cita", $"<p> Con el Doctor {CbDoctor.Text}</p>  ");
+
+            oMailMessage.IsBodyHtml = true;
+
+            SmtpClient smtpClient = new SmtpClient("smtp-mail.outlook.com");
+
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Port = 587;
+            smtpClient.Credentials = new System.Net.NetworkCredential(CorreoO, Pass);
+
+            smtpClient.Send(oMailMessage);
+
+            smtpClient.Dispose();
+
+
+        }
+
     }
 }

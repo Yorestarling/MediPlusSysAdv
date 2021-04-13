@@ -217,7 +217,7 @@ namespace SysMediPlus.InsideForms.Pacientes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Eliminar();
+            //Eliminar();
             BuscaGrid();
             limpiar();
         }

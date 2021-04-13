@@ -43,7 +43,9 @@ namespace SysMediPlus
                 {
 
                     var query = from o in test.Usuarios
-                                where o.NombreDeUsuario == TxtUsuario.Text && o.Contraseña == TxtContraseña.Text && o.IdCargo == 2
+                                where o.NombreDeUsuario == TxtUsuario.Text && 
+                                o.Contraseña == TxtContraseña.Text &&
+                                o.IdCargo == 2
                                 select o;
 
                     var query2 = from u in test.Usuarios
