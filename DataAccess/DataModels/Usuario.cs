@@ -16,9 +16,9 @@ namespace DataAccess
         }
 
         public int IdUsuario { get; set; }
-        [Required(ErrorMessage = "Requiere el Nombre de Usuario")]
+        [Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
         public string NombreDeUsuario { get; set; }
-        [Required(ErrorMessage = "Requiere la Contraseña")]
+        [Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
         public string Contraseña { get; set; }
         public int? IdCargo { get; set; }
 

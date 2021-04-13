@@ -60,7 +60,7 @@ namespace SysMediPlusWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdCita,IdPaciente,IdDoctor,FechaCita,FechaSolicitud,Tanda,Comentario,Motivo,IdEstado")] Cita cita)
+        public async Task<IActionResult> Create([Bind("IdCita,IdPaciente,IdDoctor,FechaCita,Tanda,HoraInicio,HoraFin,Comentario,Motivo,IdEstado")] Cita cita)
         {
             if (ModelState.IsValid)
             {
@@ -68,9 +68,9 @@ namespace SysMediPlusWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdDoctor"] = new SelectList(_context.Doctores, "IdDoctor", "Apellidos", cita.IdDoctor);
+            ViewData["IdDoctor"] = new SelectList(_context.Doctores, "IdDoctor", "Nombres", cita.IdDoctor);
             ViewData["IdEstado"] = new SelectList(_context.Estados, "IdEstados", "NombreEstado", cita.IdEstado);
-            ViewData["IdPaciente"] = new SelectList(_context.Pacientes, "IdPaciente", "IdPaciente", cita.IdPaciente);
+            ViewData["IdPaciente"] = new SelectList(_context.Pacientes, "IdPaciente", "Nombres", cita.IdPaciente);
             return View(cita);
         }
 
@@ -98,7 +98,7 @@ namespace SysMediPlusWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdCita,IdPaciente,IdDoctor,FechaCita,FechaSolicitud,Tanda,Comentario,Motivo,IdEstado")] Cita cita)
+        public async Task<IActionResult> Edit(int id, [Bind("IdCita,IdPaciente,IdDoctor,FechaCita,Tanda,HoraInicio,HoraFin,Comentario,Motivo,IdEstado")] Cita cita)
         {
             if (id != cita.IdCita)
             {
@@ -125,9 +125,9 @@ namespace SysMediPlusWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdDoctor"] = new SelectList(_context.Doctores, "IdDoctor", "Apellidos", cita.IdDoctor);
+            ViewData["IdDoctor"] = new SelectList(_context.Doctores, "IdDoctor", "Nombres", cita.IdDoctor);
             ViewData["IdEstado"] = new SelectList(_context.Estados, "IdEstados", "NombreEstado", cita.IdEstado);
-            ViewData["IdPaciente"] = new SelectList(_context.Pacientes, "IdPaciente", "IdPaciente", cita.IdPaciente);
+            ViewData["IdPaciente"] = new SelectList(_context.Pacientes, "IdPaciente", "Nombres", cita.IdPaciente);
             return View(cita);
         }
 
@@ -167,7 +167,5 @@ namespace SysMediPlusWeb.Controllers
         {
             return _context.Citas.Any(e => e.IdCita == id);
         }
-
-       
     }
 }

@@ -63,7 +63,13 @@ namespace DataAccess
 
                 entity.Property(e => e.FechaCita).HasColumnType("date");
 
-                entity.Property(e => e.FechaSolicitud).HasColumnType("date");
+                entity.Property(e => e.HoraFin)
+                    .HasMaxLength(10)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.HoraInicio)
+                    .HasMaxLength(10)
+                    .IsFixedLength(true);
 
                 entity.Property(e => e.Motivo).IsUnicode(false);
 
@@ -206,9 +212,12 @@ namespace DataAccess
 
                 entity.Property(e => e.IdDetalle).ValueGeneratedNever();
 
-                entity.Property(e => e.Precio).HasColumnType("money");
+                entity.Property(e => e.Comentario)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Comentario).IsUnicode(false);
+                entity.Property(e => e.Precio).HasColumnType("money");
 
                 entity.HasOne(d => d.IdFacturaNavigation)
                     .WithMany(p => p.FacturasDetalles)
@@ -226,13 +235,9 @@ namespace DataAccess
                     .HasMaxLength(25)
                     .IsUnicode(false);
 
-                entity.Property(e => e.EstadoActual)
-                    .HasMaxLength(25)
-                    .IsUnicode(false);
+                entity.Property(e => e.EstadoActual).IsUnicode(false);
 
-                entity.Property(e => e.EstadoAnterior)
-                    .HasMaxLength(25)
-                    .IsUnicode(false);
+                entity.Property(e => e.EstadoAnterior).IsUnicode(false);
 
                 entity.Property(e => e.FechaCambio).HasColumnType("datetime");
 

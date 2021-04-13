@@ -14,7 +14,7 @@ namespace DataAccess
         }
 
         public int IdEspecialidad { get; set; }
-        [Required(ErrorMessage = "Requiere el Nombre")]
+        [Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
         public string NombreEspecialidad { get; set; }
 
         public virtual ICollection<Doctore> Doctores { get; set; }

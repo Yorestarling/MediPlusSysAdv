@@ -4,10 +4,10 @@
     ViewData["Title"] = "Eliminar Cita";
 }
 
-<h1>Eliminar Cita</h1>
 
-<h3>¿Estas seguro que quieres eliminar esta Cita?</h3>
+<h3>¿Estas seguro que quieres eliminar esta Cita?<</h3>
 <div>
+    <h4>Cita</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -17,16 +17,22 @@
             @Html.DisplayFor(model => model.FechaCita)
         </dd>
         <dt class="col-sm-2">
-            Fecha de la solicitud
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FechaSolicitud)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Tanda)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Tanda)
+        </dd>
+        <dt class="col-sm-2">
+            Hora de inicio de la cita
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HoraInicio)
+        </dd>
+        <dt class="col-sm-2">
+            Fecha Fin de la cita
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HoraFin)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Comentario)
@@ -41,25 +47,26 @@
             @Html.DisplayFor(model => model.Motivo)
         </dd>
         <dt class="col-sm-2">
-            Doctor/a
+            Doctor encargado de la cita
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IdDoctorNavigation.Apellidos)
+            @Html.DisplayFor(model => model.IdDoctorNavigation.Nombres)
         </dd>
+
         <dt class="col-sm-2">
-            Estado de la cita
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IdEstadoNavigation.NombreEstado)
-        </dd>
-        <dt class="col-sm-2">
-            Nombre del paciente
+            Paciente
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.IdPacienteNavigation.Nombres)
         </dd>
+        <dt class="col-sm-2">
+            Estado Actual de la cita
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdEstadoNavigation.NombreEstado)
+        </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="IdCita" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

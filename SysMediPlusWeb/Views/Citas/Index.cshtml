@@ -15,65 +15,77 @@
         <a asp-controller="HistorialdeCambios" asp-action="Index" class="btn btn-primary ">Historial de cambios</a>
     </div>
 </div>
-
 <table class="table">
     <thead>
         <tr>
             <th>
+                Doctor
+            </th>
+
+            <th>
+               Paciente
+            </th>
+            <th>
                 Fecha de la Cita
             </th>
             <th>
-                Fecha de Solicitud
+                @Html.DisplayNameFor(model => model.Tanda)
             </th>
             <th>
-               Tanda
+               Hora de Inicio
             </th>
             <th>
-               Comentario del doctor
+                Hora de Fin
             </th>
             <th>
-                Motivo de la Cita
+                @Html.DisplayNameFor(model => model.Comentario)
             </th>
             <th>
-                Doctor/a
-            </th>           
-            <th>
-                Paciente
+                @Html.DisplayNameFor(model => model.Motivo)
             </th>
-            <th>Opciones</th>
+            <th>
+               Estado Actual
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaCita)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaSolicitud)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tanda)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Comentario)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Motivo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdDoctorNavigation.Nombres)
-                </td>             
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdPacienteNavigation.Nombres)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.IdCita">Editar</a> 
-                    <a asp-action="Details" asp-route-id="@item.IdCita">Detalle</a> 
-                    <a asp-action="Delete" asp-route-id="@item.IdCita">Eliminar</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPacienteNavigation.Nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdDoctorNavigation.Nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tanda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraFin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comentario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Motivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstadoNavigation.NombreEstado)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCita">Editar</a> 
+                <a asp-action="Details" asp-route-id="@item.IdCita">Detalle</a> 
+                
+            </td>
+        </tr>
         }
     </tbody>
 </table>

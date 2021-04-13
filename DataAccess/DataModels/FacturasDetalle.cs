@@ -10,8 +10,8 @@ namespace DataAccess
         public int IdDetalle { get; set; }
         public int IdFactura { get; set; }
         public decimal? Precio { get; set; }
-
         public string Comentario { get; set; }
+
         public virtual Factura IdFacturaNavigation { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿@model DataAccess.Cita
 
 @{
-    ViewData["Title"] = "Nueva Cita";
+    ViewData["Title"] = "Create";
 }
 
 <h1>Nueva Cita</h1>
@@ -22,7 +22,7 @@
         </div>
         <div class="col-4">
             <div class="form-group">
-                <label asp-for="FechaCita" class="control-label">Fecha de Solicitud</label>
+                <label asp-for="FechaCita" class="control-label">Fecha de la Cita</label>
                 <input asp-for="FechaCita" class="form-control" />
                 <span asp-validation-for="FechaCita" class="text-danger"></span>
             </div>
@@ -31,9 +31,20 @@
     <div class="form-row">
         <div class="col-4">
             <div class="form-group">
-                <label asp-for="FechaSolicitud" class="control-label">Fecha de la cita</label>
-                <input asp-for="FechaSolicitud" class="form-control" />
-                <span asp-validation-for="FechaSolicitud" class="text-danger"></span>
+                <div class="form-group">
+                    <label asp-for="HoraInicio" class="control-label">Hora De inicio</label>
+                    <input asp-for="HoraInicio" class="form-control" />
+                    <span asp-validation-for="HoraInicio" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <div class="form-group">
+                    <label asp-for="HoraFin" class="control-label">Hora de Fin</label>
+                    <input asp-for="HoraFin" class="form-control" />
+                    <span asp-validation-for="HoraFin" class="text-danger"></span>
+                </div>
             </div>
         </div>
         <div class="col-4">
@@ -43,53 +54,52 @@
                 <span asp-validation-for="Tanda" class="text-danger"></span>
             </div>
         </div>
+    </div>
+    <div class="form-row">
         <div class="col-4">
             <label asp-for="Comentario" class="control-label"></label>
             <input asp-for="Comentario" class="form-control" />
             <span asp-validation-for="Comentario" class="text-danger"></span>
         </div>
+        
+            <div class="col-4">
+                <div class="form-group">
+                    <label asp-for="Motivo" class="control-label"></label>
+                    <input asp-for="Motivo" class="form-control" />
+                    <span asp-validation-for="Motivo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label asp-for="IdEstado" class="control-label">Estado</label>
+                    <select asp-for="IdEstado" class="form-control" asp-items="ViewBag.IdEstado"></select>
+                </div>
+            </div>
     </div>
     <div class="form-row">
-        <div class="col-4">
-            <div class="form-group">
-                <label asp-for="Motivo" class="control-label"></label>
-                <input asp-for="Motivo" class="form-control" />
-                <span asp-validation-for="Motivo" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="form-group">
-                <label asp-for="IdEstado" class="control-label">Estado</label>
-                <select asp-for="IdEstado" class="form-control" asp-items="ViewBag.IdEstado"></select>
-            </div>
-        </div>
-        <div class="form-row">
-            <div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" style="display: none;" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLiveLabel">Cita Realizada</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>La Cita Fue Creada Con Exito</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" value="Guardar" class="btn btn-success">Guardar</button>
-                        </div>
+        <div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLiveLabel">Cita Realizada</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>La Cita Fue Creada Con Exito</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" value="Guardar" class="btn btn-success">Guardar</button>
                     </div>
                 </div>
             </div>
-
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLive">
-                Guardar
-            </button>
-
-            <div class="col-4">
-            </div>
+        </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLive">
+            Guardar
+        </button>
+        <div class="col-4">
         </div>
     </div>
 </form>
@@ -100,13 +110,11 @@
         border-color: #1861ac;
         height: 40px;
         margin-top: 30px;
-        margin-left: 30px;
+        margin-left: 5px;
     }
 </style>
+
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

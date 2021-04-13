@@ -9,10 +9,11 @@ namespace DataAccess
     public partial class Secretaria
     {
         public int IdSecretaria { get; set; }
-        [Required(ErrorMessage = "Requiere el Nombre")]
+        [Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
         public string Nombres { get; set; }
-        [Required(ErrorMessage = "Requiere el Apellido")]
+        [Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
         public string Apellidos { get; set; }
+        [Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
         public string Sexo { get; set; }
         public string Telefono { get; set; }
         public string Celular { get; set; }
