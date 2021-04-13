@@ -18,9 +18,9 @@ namespace DataAccess
         public DateTime FechaCita { get; set; }
      //  [Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
         public string Tanda { get; set; }
-       [Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
+       //[Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
         public string HoraInicio { get; set; }
-      [Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
+      //[Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
         public string HoraFin { get; set; }
        
         public string Comentario { get; set; }

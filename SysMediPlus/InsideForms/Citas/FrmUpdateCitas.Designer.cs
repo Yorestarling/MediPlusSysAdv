@@ -36,7 +36,6 @@ namespace SysMediPlus.InsideForms.Citas
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.DateFechaCita = new System.Windows.Forms.DateTimePicker();
-            this.DateSolicitud = new System.Windows.Forms.DateTimePicker();
             this.TxtMotivo = new System.Windows.Forms.TextBox();
             this.TxtComentario = new System.Windows.Forms.TextBox();
             this.RbTarde = new System.Windows.Forms.RadioButton();
@@ -48,7 +47,6 @@ namespace SysMediPlus.InsideForms.Citas
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,6 +56,10 @@ namespace SysMediPlus.InsideForms.Citas
             this.dataGridActuali = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.TxtInicio = new System.Windows.Forms.TextBox();
+            this.TxtHoraFin = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActuali)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -111,8 +113,11 @@ namespace SysMediPlus.InsideForms.Citas
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel1.Controls.Add(this.TxtHoraFin);
+            this.panel1.Controls.Add(this.TxtInicio);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.DateFechaCita);
-            this.panel1.Controls.Add(this.DateSolicitud);
             this.panel1.Controls.Add(this.TxtMotivo);
             this.panel1.Controls.Add(this.TxtComentario);
             this.panel1.Controls.Add(this.RbTarde);
@@ -124,7 +129,6 @@ namespace SysMediPlus.InsideForms.Citas
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -139,19 +143,12 @@ namespace SysMediPlus.InsideForms.Citas
             // 
             // DateFechaCita
             // 
-            this.DateFechaCita.Location = new System.Drawing.Point(186, 293);
+            this.DateFechaCita.Location = new System.Drawing.Point(186, 187);
             this.DateFechaCita.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.DateFechaCita.MinDate = new System.DateTime(1930, 12, 31, 0, 0, 0, 0);
             this.DateFechaCita.Name = "DateFechaCita";
             this.DateFechaCita.Size = new System.Drawing.Size(270, 27);
             this.DateFechaCita.TabIndex = 53;
-            // 
-            // DateSolicitud
-            // 
-            this.DateSolicitud.Location = new System.Drawing.Point(186, 206);
-            this.DateSolicitud.Name = "DateSolicitud";
-            this.DateSolicitud.Size = new System.Drawing.Size(270, 27);
-            this.DateSolicitud.TabIndex = 52;
             // 
             // TxtMotivo
             // 
@@ -255,21 +252,11 @@ namespace SysMediPlus.InsideForms.Citas
             this.label7.TabIndex = 63;
             this.label7.Text = "Comentario:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(21, 206);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 24);
-            this.label3.TabIndex = 61;
-            this.label3.Text = "Fecha Solicitud:";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(21, 295);
+            this.label5.Location = new System.Drawing.Point(21, 189);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(159, 24);
             this.label5.TabIndex = 58;
@@ -367,6 +354,40 @@ namespace SysMediPlus.InsideForms.Citas
             this.pictureBox1.TabIndex = 40;
             this.pictureBox1.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(21, 253);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(143, 24);
+            this.label3.TabIndex = 67;
+            this.label3.Text = "Hora de Inicio:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(21, 313);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(121, 24);
+            this.label11.TabIndex = 68;
+            this.label11.Text = "Hora de Fin:";
+            // 
+            // TxtInicio
+            // 
+            this.TxtInicio.Location = new System.Drawing.Point(186, 253);
+            this.TxtInicio.Name = "TxtInicio";
+            this.TxtInicio.Size = new System.Drawing.Size(270, 27);
+            this.TxtInicio.TabIndex = 69;
+            // 
+            // TxtHoraFin
+            // 
+            this.TxtHoraFin.Location = new System.Drawing.Point(186, 313);
+            this.TxtHoraFin.Name = "TxtHoraFin";
+            this.TxtHoraFin.Size = new System.Drawing.Size(270, 27);
+            this.TxtHoraFin.TabIndex = 70;
+            // 
             // FrmUpdateCitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -409,7 +430,6 @@ namespace SysMediPlus.InsideForms.Citas
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BtnAgregarD;
         private System.Windows.Forms.DateTimePicker DateFechaCita;
-        private System.Windows.Forms.DateTimePicker DateSolicitud;
         private System.Windows.Forms.TextBox TxtMotivo;
         private System.Windows.Forms.TextBox TxtComentario;
         private System.Windows.Forms.RadioButton RbTarde;
@@ -421,9 +441,12 @@ namespace SysMediPlus.InsideForms.Citas
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TxtHoraFin;
+        private System.Windows.Forms.TextBox TxtInicio;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label3;
     }
 }

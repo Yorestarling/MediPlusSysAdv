@@ -23,13 +23,13 @@ namespace SysMediPlus.InsideForms.Citas
             llenarCombo();
         }
 
-
+        int cout = 0;
         private void InsertarCita()
         {
 
             using (var context = new MediPlusSysContext())
             {
-
+                
                 if (CbPaciente.SelectedIndex == 0 || CbDoctor.SelectedIndex == 0)
                 {
                     MessageBox.Show("AUN NO SE HA SELECCIONADO UN PACIENTE O DOCTOR");
@@ -37,21 +37,34 @@ namespace SysMediPlus.InsideForms.Citas
                 }           
                 else
                 {
+                   
 
                     var Cidb = new Cita()
                     {
+                        
                         IdPaciente = (int)Convert.ToUInt32(CbPaciente.SelectedValue),
-                        IdDoctor = (int)Convert.ToUInt32(CbDoctor.SelectedValue),
-                        FechaSolicitud = DateSolicitud.Value.Date,
+                        IdDoctor = (int)Convert.ToUInt32(CbDoctor.SelectedValue),                     
                         FechaCita =DateFechaCita.Value.Date,
+                        HoraInicio = TxtHoraInicio.Text,
+                        HoraFin = TxtFin.Text,
+                        Comentario = TxtComentario.Text,
+                        Motivo = TxtMotivo.Text,
                         IdEstado = (int)Convert.ToUInt32(CBEstado.SelectedValue),
                         Tanda = RbManana.Checked == true ? "Mañana" : "Tarde",
 
                     };
-                    context.Citas.Add(Cidb);
-                    context.SaveChanges();
 
-                    MessageBox.Show("CITA AGREGADO", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (DateFechaCita.Value.Date == Cidb.FechaCita && TxtHoraInicio.Text == Cidb.HoraInicio)
+                    {
+                        MessageBox.Show("NO SE PUEDE");
+                    }
+                    else
+                    {
+                        cout++;
+                        context.Citas.Add(Cidb);
+                        context.SaveChanges();
+                        MessageBox.Show("CITA AGREGADO", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
                 }
             }
 

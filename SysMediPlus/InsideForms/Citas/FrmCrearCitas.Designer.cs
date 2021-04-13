@@ -32,8 +32,10 @@ namespace SysMediPlus.InsideForms.Citas
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCrearCitas));
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TxtFin = new System.Windows.Forms.TextBox();
+            this.TxtHoraInicio = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.DateFechaCita = new System.Windows.Forms.DateTimePicker();
-            this.DateSolicitud = new System.Windows.Forms.DateTimePicker();
             this.TxtMotivo = new System.Windows.Forms.TextBox();
             this.TxtComentario = new System.Windows.Forms.TextBox();
             this.RbTarde = new System.Windows.Forms.RadioButton();
@@ -65,7 +67,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.BtnLimpiar.Location = new System.Drawing.Point(12, 173);
             this.BtnLimpiar.Name = "BtnLimpiar";
             this.BtnLimpiar.Size = new System.Drawing.Size(236, 43);
-            this.BtnLimpiar.TabIndex = 11;
+            this.BtnLimpiar.TabIndex = 0;
             this.BtnLimpiar.Text = "Limpiar Campos";
             this.BtnLimpiar.UseVisualStyleBackColor = false;
             this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
@@ -75,8 +77,10 @@ namespace SysMediPlus.InsideForms.Citas
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel1.Controls.Add(this.TxtFin);
+            this.panel1.Controls.Add(this.TxtHoraInicio);
+            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.DateFechaCita);
-            this.panel1.Controls.Add(this.DateSolicitud);
             this.panel1.Controls.Add(this.TxtMotivo);
             this.panel1.Controls.Add(this.TxtComentario);
             this.panel1.Controls.Add(this.RbTarde);
@@ -98,21 +102,41 @@ namespace SysMediPlus.InsideForms.Citas
             this.panel1.Size = new System.Drawing.Size(1077, 438);
             this.panel1.TabIndex = 32;
             // 
+            // TxtFin
+            // 
+            this.TxtFin.Location = new System.Drawing.Point(209, 332);
+            this.TxtFin.Name = "TxtFin";
+            this.TxtFin.Size = new System.Drawing.Size(270, 27);
+            this.TxtFin.TabIndex = 5;
+            // 
+            // TxtHoraInicio
+            // 
+            this.TxtHoraInicio.Location = new System.Drawing.Point(209, 272);
+            this.TxtHoraInicio.Name = "TxtHoraInicio";
+            this.TxtHoraInicio.Size = new System.Drawing.Size(270, 27);
+            this.TxtHoraInicio.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(44, 335);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(121, 24);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Hora de Fin:";
+            // 
             // DateFechaCita
             // 
-            this.DateFechaCita.Location = new System.Drawing.Point(209, 297);
+            this.DateFechaCita.CustomFormat = "";
+            this.DateFechaCita.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DateFechaCita.Location = new System.Drawing.Point(209, 192);
             this.DateFechaCita.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.DateFechaCita.MinDate = new System.DateTime(1930, 12, 31, 0, 0, 0, 0);
             this.DateFechaCita.Name = "DateFechaCita";
             this.DateFechaCita.Size = new System.Drawing.Size(270, 27);
-            this.DateFechaCita.TabIndex = 4;
-            // 
-            // DateSolicitud
-            // 
-            this.DateSolicitud.Location = new System.Drawing.Point(209, 210);
-            this.DateSolicitud.Name = "DateSolicitud";
-            this.DateSolicitud.Size = new System.Drawing.Size(270, 27);
-            this.DateSolicitud.TabIndex = 3;
+            this.DateFechaCita.TabIndex = 3;
+            this.DateFechaCita.Value = new System.DateTime(2021, 4, 12, 0, 0, 0, 0);
             // 
             // TxtMotivo
             // 
@@ -120,7 +144,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.TxtMotivo.Multiline = true;
             this.TxtMotivo.Name = "TxtMotivo";
             this.TxtMotivo.Size = new System.Drawing.Size(270, 97);
-            this.TxtMotivo.TabIndex = 8;
+            this.TxtMotivo.TabIndex = 9;
             // 
             // TxtComentario
             // 
@@ -128,7 +152,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.TxtComentario.Multiline = true;
             this.TxtComentario.Name = "TxtComentario";
             this.TxtComentario.Size = new System.Drawing.Size(270, 98);
-            this.TxtComentario.TabIndex = 7;
+            this.TxtComentario.TabIndex = 8;
             // 
             // RbTarde
             // 
@@ -136,7 +160,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.RbTarde.Location = new System.Drawing.Point(376, 389);
             this.RbTarde.Name = "RbTarde";
             this.RbTarde.Size = new System.Drawing.Size(66, 24);
-            this.RbTarde.TabIndex = 6;
+            this.RbTarde.TabIndex = 7;
             this.RbTarde.TabStop = true;
             this.RbTarde.Text = "Tarde";
             this.RbTarde.UseVisualStyleBackColor = true;
@@ -147,7 +171,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.RbManana.Location = new System.Drawing.Point(201, 388);
             this.RbManana.Name = "RbManana";
             this.RbManana.Size = new System.Drawing.Size(83, 24);
-            this.RbManana.TabIndex = 5;
+            this.RbManana.TabIndex = 6;
             this.RbManana.TabStop = true;
             this.RbManana.Text = "Mañana";
             this.RbManana.UseVisualStyleBackColor = true;
@@ -197,7 +221,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.CBEstado.Location = new System.Drawing.Point(732, 296);
             this.CBEstado.Name = "CBEstado";
             this.CBEstado.Size = new System.Drawing.Size(270, 28);
-            this.CBEstado.TabIndex = 9;
+            this.CBEstado.TabIndex = 10;
             // 
             // label9
             // 
@@ -233,17 +257,17 @@ namespace SysMediPlus.InsideForms.Citas
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(44, 210);
+            this.label3.Location = new System.Drawing.Point(44, 272);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 24);
+            this.label3.Size = new System.Drawing.Size(143, 24);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Fecha Solicitud:";
+            this.label3.Text = "Hora de Inicio:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(44, 299);
+            this.label5.Location = new System.Drawing.Point(44, 192);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(159, 24);
             this.label5.TabIndex = 7;
@@ -351,7 +375,9 @@ namespace SysMediPlus.InsideForms.Citas
         private System.Windows.Forms.RadioButton RbTarde;
         private System.Windows.Forms.RadioButton RbManana;
         private System.Windows.Forms.DateTimePicker DateFechaCita;
-        private System.Windows.Forms.DateTimePicker DateSolicitud;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox TxtFin;
+        private System.Windows.Forms.TextBox TxtHoraInicio;
+        private System.Windows.Forms.Label label10;
     }
 }

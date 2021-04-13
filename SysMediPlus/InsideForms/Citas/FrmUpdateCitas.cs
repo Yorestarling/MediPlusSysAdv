@@ -32,7 +32,7 @@ namespace SysMediPlus.InsideForms.Citas
                 var Doc = context.Citas.ToList().Find(e => e.IdCita == idcitas);
                 Doc.IdPaciente = (int)(CbPaciente.SelectedValue);
                 Doc.IdDoctor = (int)(CbDoctor.SelectedValue);
-                Doc.FechaSolicitud = (DateTime)DateSolicitud.Value;
+                
                 Doc.FechaCita = (DateTime)DateFechaCita.Value;
                 Doc.Tanda = RbManana.Checked == true ? "Mañana" : "Tarde";
                 Doc.Comentario = TxtComentario.Text;
@@ -55,28 +55,29 @@ namespace SysMediPlus.InsideForms.Citas
 
         private void BuscaGrid()
         {
-
             using var db = new MediPlusSysContext();
 
             var pac2 = db.Citas.Include(x => x.IdDoctorNavigation)
                 .Include(x => x.IdPacienteNavigation).Include(x => x.IdEstadoNavigation).ToList();
 
             var List = (from p in pac2
-                        where p.IdDoctor.ToString().Contains(TxtBuscar.Text)
+                        where p.IdPacienteNavigation.Nombres.ToLower().Contains(TxtBuscar.Text)
                         select new
                         {
-                            id = p.IdCita,
-                            Doctor  = p.IdDoctorNavigation.Nombres+' '+p.IdDoctorNavigation.Apellidos,
-                            Paciente = p.IdPacienteNavigation.Nombres+' '+p.IdPacienteNavigation.Apellidos,
-                            FechaSolicitud = p.FechaSolicitud,
-                            FechaCita = p.FechaCita,
-                            Comentario = p.Comentario,
+                            ID = p.IdPaciente,
+                            Paciente = p.IdPacienteNavigation.Nombres + ' ' + p.IdPacienteNavigation.Apellidos,
+                            Doctor = p.IdDoctorNavigation.Nombres + ' ' + p.IdDoctorNavigation.Apellidos,
+                            Fecha_De_La_Cita = p.FechaCita,
+                            Hora_Inicio = p.HoraInicio,
+                            Hora_Fin = p.HoraFin,
                             Motivo = p.Motivo,
-                            Estado = p.IdEstadoNavigation.NombreEstado        
-                        }).ToList();
+                            Comentario = p.Comentario,
+                            Estado = p.IdEstadoNavigation.NombreEstado,
 
+                        }).ToList();
             dataGridActuali.DataSource = List;
             dataGridActuali.Columns[0].Visible = false;
+
 
         }
 
@@ -93,11 +94,13 @@ namespace SysMediPlus.InsideForms.Citas
                                   select p).SingleOrDefault();
                 TxtComentario.Text = resultando.Comentario;
                 TxtMotivo.Text = resultando.Motivo;
+                TxtInicio.Text = resultando.HoraInicio;
+                TxtHoraFin.Text = resultando.HoraFin;
                 CbPaciente.SelectedValue = Convert.ToInt32(resultando.IdPaciente);
                 CbDoctor.SelectedValue = Convert.ToInt32(resultando.IdDoctor);
                 CBEstado.SelectedValue = Convert.ToInt32(resultando.IdEstado);
                 DateFechaCita.Value = resultando.FechaCita;
-                DateSolicitud.Value = (DateTime)resultando.FechaSolicitud;
+                
 
                 if (dataGridActuali[3, dataGridActuali.CurrentRow.Index].Value.ToString() == "Mañana")
                     RbManana.Checked = true;
