@@ -2,7 +2,7 @@
 
 @{ 
     ViewBag.Title = "Login";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
     <div class="container">
@@ -12,7 +12,7 @@
                     <form onsubmit="event.preventDefault()" class="box" method="post">
                         <h1>Iniciar Sesión</h1>
 
-                        <p class="text-muted"> Por Favor introduce tu usuario y contraseña!</p>
+                        <p class="table-warning p "> Por Favor introduce tu usuario y contraseña!</p>
 
                         <input type="text" name="Usuario" placeholder="Nombre De Usuario">
 
@@ -34,6 +34,14 @@
     </div>
 
 <style>
+    .p{
+        color: white;
+
+    }
+
+    a{
+        color:gray;
+    }
     body {
         margin: 0;
         padding: 0;
@@ -49,15 +57,15 @@
     .box {
         width: 500px;
         padding: 40px;
-        position: absolute;
+        position: center;
         top: 50%;
         left: 50%;
         background: #191919;
-        ;
+        
         text-align: center;
         transition: 0.25s;
-        margin-top: 0px;
-        margin-left: 300px;
+        margin-top: 200px;
+        margin-left: 500px;
     }
 
         .box input[type="text"],
