@@ -62,7 +62,8 @@ namespace SysMediPlus.InsideForms.Citas
                 .Include(x => x.IdPacienteNavigation).Include(x => x.IdEstadoNavigation).ToList();
 
             var List = (from p in pac2
-                        where p.IdPacienteNavigation.Nombres.ToLower().Contains(TxtBuscar.Text)
+                        where p.IdDoctorNavigation.Nombres.ToLower().Contains(TxtBuscar.Text) || 
+                        p.IdDoctorNavigation.Apellidos.ToLower().Contains(TxtBuscar.Text)
                         select new
                         {
                             ID = p.IdCita,
