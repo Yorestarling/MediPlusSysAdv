@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -16,9 +15,7 @@ namespace DataAccess
         }
 
         public int IdUsuario { get; set; }
-        [Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
         public string NombreDeUsuario { get; set; }
-        [Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
         public string Contraseña { get; set; }
         public int? IdCargo { get; set; }
 

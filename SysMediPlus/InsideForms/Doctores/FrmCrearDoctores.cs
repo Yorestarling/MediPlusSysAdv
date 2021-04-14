@@ -121,6 +121,7 @@ namespace SysMediPlus.InsideForms.Doctores
                 CbEspecialidade.SelectedIndex = 0;
                 CBDiasLabor.SelectedIndex = 0;
                 CbTipoUsuario.SelectedIndex = 0;
+                
             }
 
         }

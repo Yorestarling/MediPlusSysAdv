@@ -213,11 +213,16 @@ namespace DataAccess
                 entity.Property(e => e.IdDetalle).ValueGeneratedNever();
 
                 entity.Property(e => e.Comentario)
-                    .IsRequired()
-                    .HasMaxLength(100)
+                    .HasMaxLength(255)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Precio).HasColumnType("money");
+
+                entity.HasOne(d => d.IdDoctorNavigation)
+                    .WithMany(p => p.FacturasDetalles)
+                    .HasForeignKey(d => d.IdDoctor)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("Fk_IdDoctorFac");
 
                 entity.HasOne(d => d.IdFacturaNavigation)
                     .WithMany(p => p.FacturasDetalles)

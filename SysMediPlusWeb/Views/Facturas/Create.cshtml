@@ -1,0 +1,148 @@
+﻿
+@model CrearFacturasViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h1>Nueva Factura</h1>
+
+<form method="post">
+
+    <div class="form-row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Paciente ID</label>
+                <input type="text" class="form-control" asp-for="factura.IdPaciente" />
+                @*<select asp-for="Order.EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId"></select>*@
+                <span class="invalid-feedback d-block" asp-validation-for="factura.IdPaciente"></span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Fecha</label>
+                <input type="text" class="form-control" asp-for="factura.Fecha" />
+                @*<select asp-for="Order.EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId"></select>*@
+                <span class="invalid-feedback d-block" asp-validation-for="factura.Fecha"></span>
+            </div>
+        </div>
+    </div>
+    <div></div>
+    <div class="row">
+
+        <div class="col-md-12"> </div>
+        <table class="table">
+            <thead>
+                <tr class="container2">
+
+                    <th>Doctor ID</th>
+                    <th>Comentario</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+
+           
+
+            @*@foreach (var item in Model.Details)
+            {
+
+                <tr class="container2">
+
+                    <td>
+                        @item.IdDoctor
+                        <input type="hidden" name="Details[].IdDoctor" value="@item.IdDoctor" />
+                        <span class="invalid-feedback d-block" asp-validation-for="newdetail.IdDoctor"></span>
+                    </td>
+
+                    <td>
+                        @item.Comentario
+                        <input type="hidden" name="Details[].Comentario" value="@item.Precio" />
+                        <span class="invalid-feedback d-block" asp-validation-for="newdetail.Precio"></span>
+                    </td>
+                    <td>
+                        @item.Precio
+                        <input type="hidden" name="Details[].Precio" value="@item.Comentario" />
+                        <span class="invalid-feedback d-block" asp-validation-for="newdetail.Comentario"></span>
+                    </td>
+                </tr>
+
+
+            }*@
+
+
+
+
+
+            @*@if (Model.Details != null)
+        {
+
+            int index = 0;
+            foreach (var item in Model.Details)
+            {
+
+                <tr class="container2">
+
+                    <td>
+                        @item.IdDoctor
+                        <input type="hidden" name="Details[@index].IdDoctor" value="@item.IdDoctor" />
+                        <span class="invalid-feedback d-block" asp-validation-for="newdetail.IdDoctor"></span>
+                    </td>
+
+                    <td>
+                        @item.Comentario
+                        <input type="hidden" name="Details[@index].Comentario" value="@item.Precio" />
+                        <span class="invalid-feedback d-block" asp-validation-for="newdetail.Precio"></span>
+                    </td>
+                    <td>
+                        @item.Precio
+                        <input type="hidden" name="Details[@index].Precio" value="@item.Comentario" />
+                        <span class="invalid-feedback d-block" asp-validation-for="newdetail.Comentario"></span>
+                    </td>
+                </tr>
+
+                index++;
+            }
+        }*@
+
+
+            </tbody>
+            <tfoot class="container6">
+                <tr class="container6">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                </tr>
+                <tr class="container6">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="text-right font-weight-bold">Total</td>
+                    @* <td class="text-right"> @Model.newdetail.Precio</td>*@
+                </tr>
+            </tfoot>
+        </table>
+        </div>
+        @if (Model.Details != null && Model.Details.Count > 0)
+        {
+            <button type="submit" name="command" value="Save" class="btn btn-primary">Save</button>
+        }
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<style>
+    .btn-add-delatails {
+        margin-top: 32px;
+    }
+
+    .container6 {
+        font-weight: 100;
+        color: #ffffff;
+        text-align: right;
+    }
+</style>
+

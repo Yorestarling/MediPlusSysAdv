@@ -1,9 +1,45 @@
-﻿<h1>Facturas</h1>
+﻿@model IEnumerable<SysMediPlusWeb.Models.CrearFacturasViewModel>
+
+@{
+    ViewData["Title"] = "Facturas";
+}
 
 <div class="d-flex align-items-center">
     <div class="flex-grow-1">
+        <h1>Orders</h1>
     </div>
     <div>
-        <a href="@Url.Action("CrearFactura")" class="btn btn-primary ">Nueva Factura</a>
+        <a href="@Url.Action("Create")" class="btn btn-primary ">Nueva Factura</a>
     </div>
 </div>
+<table class="table table-bordered container2">
+    <thead>
+        <tr>
+            <th>
+                Factura
+            </th>
+            <th align="right">
+                Paciente
+            </th>
+            <th align="center">
+                Fecha
+            </th>
+        </tr>
+    </thead>
+    @*<tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.factura.IdFactura)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.factura.IdPaciente)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.factura.IdFactura">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>*@
+</table>

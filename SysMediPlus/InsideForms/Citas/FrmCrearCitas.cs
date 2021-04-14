@@ -144,6 +144,7 @@ namespace SysMediPlus.InsideForms.Citas
                 CbDoctor.SelectedIndex = 0;
                 CBEstado.SelectedIndex = 0;
                 CbPaciente.SelectedIndex = 0;
+                DateFechaCita.Value = DateTime.Now;
             }
 
         }

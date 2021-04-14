@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -11,18 +10,15 @@ namespace DataAccess
         public Doctore()
         {
             Cita = new HashSet<Cita>();
+            FacturasDetalles = new HashSet<FacturasDetalle>();
         }
 
         public int IdDoctor { get; set; }
-        [Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
         public string Nombres { get; set; }
-        [Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
         public string Apellidos { get; set; }
         public string Sexo { get; set; }
-        [Required(ErrorMessage = "ESTE CAMPO ES REQUERIDO, FAVOR LLENARLO")]
         public string Telefono { get; set; }
         public string Celular { get; set; }
-
         public int? IdEspecialidad { get; set; }
         public int? Iddia { get; set; }
         public int? Idusuario { get; set; }
@@ -33,5 +29,6 @@ namespace DataAccess
         public virtual Dia IddiaNavigation { get; set; }
         public virtual Usuario IdusuarioNavigation { get; set; }
         public virtual ICollection<Cita> Cita { get; set; }
+        public virtual ICollection<FacturasDetalle> FacturasDetalles { get; set; }
     }
 }

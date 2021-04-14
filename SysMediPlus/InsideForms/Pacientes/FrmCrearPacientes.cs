@@ -43,6 +43,7 @@ namespace SysMediPlus.InsideForms.Pacientes
                         Apellidos = TxtApellidosP.Text,
                         Sexo = RbMasculino.Checked == true ? "M" : "F",
                         CorreoElectronico = TxtCorreo.Text,
+                        FechaDeNacimiento = dateTimeNacimiento.Value.Date,
                         Cedula = MaskCedula.Text,
                         Provincia = txtProvincia.Text,
                         Ciudad = TxtCiudad.Text,

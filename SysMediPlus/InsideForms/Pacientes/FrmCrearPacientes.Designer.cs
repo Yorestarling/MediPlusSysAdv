@@ -61,6 +61,8 @@ namespace SysMediPlus.InsideForms.Pacientes
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dateTimeNacimiento = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -82,6 +84,8 @@ namespace SysMediPlus.InsideForms.Pacientes
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel1.Controls.Add(this.dateTimeNacimiento);
+            this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.MaskCedula);
             this.panel1.Controls.Add(this.MaskCelular);
             this.panel1.Controls.Add(this.MaskTelefono);
@@ -259,7 +263,7 @@ namespace SysMediPlus.InsideForms.Pacientes
             // RbFemenino
             // 
             this.RbFemenino.AutoSize = true;
-            this.RbFemenino.Location = new System.Drawing.Point(324, 149);
+            this.RbFemenino.Location = new System.Drawing.Point(319, 126);
             this.RbFemenino.Name = "RbFemenino";
             this.RbFemenino.Size = new System.Drawing.Size(95, 24);
             this.RbFemenino.TabIndex = 12;
@@ -270,7 +274,7 @@ namespace SysMediPlus.InsideForms.Pacientes
             // RbMasculino
             // 
             this.RbMasculino.AutoSize = true;
-            this.RbMasculino.Location = new System.Drawing.Point(149, 148);
+            this.RbMasculino.Location = new System.Drawing.Point(144, 125);
             this.RbMasculino.Name = "RbMasculino";
             this.RbMasculino.Size = new System.Drawing.Size(97, 24);
             this.RbMasculino.TabIndex = 11;
@@ -282,7 +286,7 @@ namespace SysMediPlus.InsideForms.Pacientes
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(44, 148);
+            this.label6.Location = new System.Drawing.Point(39, 125);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 24);
             this.label6.TabIndex = 10;
@@ -292,7 +296,7 @@ namespace SysMediPlus.InsideForms.Pacientes
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(39, 207);
+            this.label3.Location = new System.Drawing.Point(39, 170);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 24);
             this.label3.TabIndex = 9;
@@ -300,7 +304,7 @@ namespace SysMediPlus.InsideForms.Pacientes
             // 
             // TxtCorreo
             // 
-            this.TxtCorreo.Location = new System.Drawing.Point(144, 207);
+            this.TxtCorreo.Location = new System.Drawing.Point(144, 170);
             this.TxtCorreo.Name = "TxtCorreo";
             this.TxtCorreo.Size = new System.Drawing.Size(275, 27);
             this.TxtCorreo.TabIndex = 8;
@@ -319,7 +323,7 @@ namespace SysMediPlus.InsideForms.Pacientes
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(44, 96);
+            this.label2.Location = new System.Drawing.Point(39, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 24);
             this.label2.TabIndex = 5;
@@ -327,7 +331,7 @@ namespace SysMediPlus.InsideForms.Pacientes
             // 
             // TxtApellidosP
             // 
-            this.TxtApellidosP.Location = new System.Drawing.Point(149, 96);
+            this.TxtApellidosP.Location = new System.Drawing.Point(144, 73);
             this.TxtApellidosP.Name = "TxtApellidosP";
             this.TxtApellidosP.Size = new System.Drawing.Size(270, 27);
             this.TxtApellidosP.TabIndex = 4;
@@ -336,7 +340,7 @@ namespace SysMediPlus.InsideForms.Pacientes
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(44, 44);
+            this.label1.Location = new System.Drawing.Point(39, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 24);
             this.label1.TabIndex = 1;
@@ -344,7 +348,7 @@ namespace SysMediPlus.InsideForms.Pacientes
             // 
             // TxtNombresP
             // 
-            this.TxtNombresP.Location = new System.Drawing.Point(149, 44);
+            this.TxtNombresP.Location = new System.Drawing.Point(144, 21);
             this.TxtNombresP.Name = "TxtNombresP";
             this.TxtNombresP.Size = new System.Drawing.Size(270, 27);
             this.TxtNombresP.TabIndex = 0;
@@ -381,6 +385,26 @@ namespace SysMediPlus.InsideForms.Pacientes
             this.button4.Text = "ATRAS";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label14.Location = new System.Drawing.Point(40, 222);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(205, 24);
+            this.label14.TabIndex = 31;
+            this.label14.Text = "Fecha de nacimiento:";
+            // 
+            // dateTimeNacimiento
+            // 
+            this.dateTimeNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeNacimiento.Location = new System.Drawing.Point(251, 222);
+            this.dateTimeNacimiento.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.dateTimeNacimiento.MinDate = new System.DateTime(1950, 12, 31, 0, 0, 0, 0);
+            this.dateTimeNacimiento.Name = "dateTimeNacimiento";
+            this.dateTimeNacimiento.Size = new System.Drawing.Size(163, 27);
+            this.dateTimeNacimiento.TabIndex = 32;
             // 
             // FrmCrearPacientes
             // 
@@ -441,5 +465,7 @@ namespace SysMediPlus.InsideForms.Pacientes
         private System.Windows.Forms.MaskedTextBox MaskCelular;
         private System.Windows.Forms.MaskedTextBox MaskTelefono;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DateTimePicker dateTimeNacimiento;
     }
 }
