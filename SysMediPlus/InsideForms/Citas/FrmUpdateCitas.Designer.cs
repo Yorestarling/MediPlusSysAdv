@@ -35,6 +35,10 @@ namespace SysMediPlus.InsideForms.Citas
             this.button4 = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TxtHoraFin = new System.Windows.Forms.TextBox();
+            this.TxtInicio = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.DateFechaCita = new System.Windows.Forms.DateTimePicker();
             this.TxtMotivo = new System.Windows.Forms.TextBox();
             this.TxtComentario = new System.Windows.Forms.TextBox();
@@ -56,10 +60,6 @@ namespace SysMediPlus.InsideForms.Citas
             this.dataGridActuali = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.TxtInicio = new System.Windows.Forms.TextBox();
-            this.TxtHoraFin = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActuali)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,6 +82,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(255, 31);
             this.TxtBuscar.TabIndex = 45;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // button4
             // 
@@ -141,6 +142,42 @@ namespace SysMediPlus.InsideForms.Citas
             this.panel1.Size = new System.Drawing.Size(1541, 436);
             this.panel1.TabIndex = 43;
             // 
+            // TxtHoraFin
+            // 
+            this.TxtHoraFin.Location = new System.Drawing.Point(186, 313);
+            this.TxtHoraFin.Name = "TxtHoraFin";
+            this.TxtHoraFin.ReadOnly = true;
+            this.TxtHoraFin.Size = new System.Drawing.Size(270, 27);
+            this.TxtHoraFin.TabIndex = 70;
+            // 
+            // TxtInicio
+            // 
+            this.TxtInicio.Location = new System.Drawing.Point(186, 253);
+            this.TxtInicio.Name = "TxtInicio";
+            this.TxtInicio.ReadOnly = true;
+            this.TxtInicio.Size = new System.Drawing.Size(270, 27);
+            this.TxtInicio.TabIndex = 69;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(21, 313);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(121, 24);
+            this.label11.TabIndex = 68;
+            this.label11.Text = "Hora de Fin:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(21, 253);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(143, 24);
+            this.label3.TabIndex = 67;
+            this.label3.Text = "Hora de Inicio:";
+            // 
             // DateFechaCita
             // 
             this.DateFechaCita.Location = new System.Drawing.Point(186, 187);
@@ -155,6 +192,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.TxtMotivo.Location = new System.Drawing.Point(709, 167);
             this.TxtMotivo.Multiline = true;
             this.TxtMotivo.Name = "TxtMotivo";
+            this.TxtMotivo.ReadOnly = true;
             this.TxtMotivo.Size = new System.Drawing.Size(270, 97);
             this.TxtMotivo.TabIndex = 59;
             // 
@@ -353,40 +391,6 @@ namespace SysMediPlus.InsideForms.Citas
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 40;
             this.pictureBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(21, 253);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 24);
-            this.label3.TabIndex = 67;
-            this.label3.Text = "Hora de Inicio:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Sofia Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(21, 313);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(121, 24);
-            this.label11.TabIndex = 68;
-            this.label11.Text = "Hora de Fin:";
-            // 
-            // TxtInicio
-            // 
-            this.TxtInicio.Location = new System.Drawing.Point(186, 253);
-            this.TxtInicio.Name = "TxtInicio";
-            this.TxtInicio.Size = new System.Drawing.Size(270, 27);
-            this.TxtInicio.TabIndex = 69;
-            // 
-            // TxtHoraFin
-            // 
-            this.TxtHoraFin.Location = new System.Drawing.Point(186, 313);
-            this.TxtHoraFin.Name = "TxtHoraFin";
-            this.TxtHoraFin.Size = new System.Drawing.Size(270, 27);
-            this.TxtHoraFin.TabIndex = 70;
             // 
             // FrmUpdateCitas
             // 

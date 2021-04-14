@@ -32,6 +32,7 @@ namespace SysMediPlus.InsideForms.Citas
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCrearCitas));
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbboxFin = new System.Windows.Forms.ListBox();
             this.LbBoxInicio = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.DateFechaCita = new System.Windows.Forms.DateTimePicker();
@@ -54,7 +55,6 @@ namespace SysMediPlus.InsideForms.Citas
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.lbboxFin = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -101,6 +101,24 @@ namespace SysMediPlus.InsideForms.Citas
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1077, 438);
             this.panel1.TabIndex = 32;
+            // 
+            // lbboxFin
+            // 
+            this.lbboxFin.FormattingEnabled = true;
+            this.lbboxFin.ItemHeight = 20;
+            this.lbboxFin.Items.AddRange(new object[] {
+            "Seleccione la hora de fin",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "15:00",
+            "16:00",
+            "17:00"});
+            this.lbboxFin.Location = new System.Drawing.Point(209, 335);
+            this.lbboxFin.Name = "lbboxFin";
+            this.lbboxFin.Size = new System.Drawing.Size(270, 24);
+            this.lbboxFin.TabIndex = 26;
             // 
             // LbBoxInicio
             // 
@@ -155,6 +173,7 @@ namespace SysMediPlus.InsideForms.Citas
             this.TxtComentario.Location = new System.Drawing.Point(732, 41);
             this.TxtComentario.Multiline = true;
             this.TxtComentario.Name = "TxtComentario";
+            this.TxtComentario.ReadOnly = true;
             this.TxtComentario.Size = new System.Drawing.Size(270, 98);
             this.TxtComentario.TabIndex = 8;
             // 
@@ -329,24 +348,6 @@ namespace SysMediPlus.InsideForms.Citas
             this.button4.Text = "ATRAS";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // lbboxFin
-            // 
-            this.lbboxFin.FormattingEnabled = true;
-            this.lbboxFin.ItemHeight = 20;
-            this.lbboxFin.Items.AddRange(new object[] {
-            "Seleccione la hora de fin",
-            "09:00",
-            "10:00",
-            "11:00",
-            "12:00",
-            "15:00",
-            "16:00",
-            "17:00"});
-            this.lbboxFin.Location = new System.Drawing.Point(209, 335);
-            this.lbboxFin.Name = "lbboxFin";
-            this.lbboxFin.Size = new System.Drawing.Size(270, 24);
-            this.lbboxFin.TabIndex = 26;
             // 
             // FrmCrearCitas
             // 

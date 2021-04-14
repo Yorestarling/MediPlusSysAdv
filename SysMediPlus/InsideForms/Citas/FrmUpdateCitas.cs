@@ -50,6 +50,7 @@ namespace SysMediPlus.InsideForms.Citas
         private void dataGridActuali_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             GridToTxt();
+           // BuscaGrid();
         }
 
 
@@ -64,7 +65,7 @@ namespace SysMediPlus.InsideForms.Citas
                         where p.IdPacienteNavigation.Nombres.ToLower().Contains(TxtBuscar.Text)
                         select new
                         {
-                            ID = p.IdPaciente,
+                            ID = p.IdCita,
                             Paciente = p.IdPacienteNavigation.Nombres + ' ' + p.IdPacienteNavigation.Apellidos,
                             Doctor = p.IdDoctorNavigation.Nombres + ' ' + p.IdDoctorNavigation.Apellidos,
                             Fecha_De_La_Cita = p.FechaCita,
@@ -92,7 +93,10 @@ namespace SysMediPlus.InsideForms.Citas
                 var resultando = (from p in db.Citas
                                   where p.IdCita == idcitas
                                   select p).SingleOrDefault();
-                TxtComentario.Text = resultando.Comentario;
+
+               
+                    TxtComentario.Text = resultando.Comentario.ToString();
+                    TxtMotivo.Text = resultando.Motivo.ToString();    
                 TxtMotivo.Text = resultando.Motivo;
                 TxtInicio.Text = resultando.HoraInicio;
                 TxtHoraFin.Text = resultando.HoraFin;
@@ -231,6 +235,12 @@ namespace SysMediPlus.InsideForms.Citas
         private void button1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            //GridToTxt();
+            BuscaGrid();
         }
     }
 }

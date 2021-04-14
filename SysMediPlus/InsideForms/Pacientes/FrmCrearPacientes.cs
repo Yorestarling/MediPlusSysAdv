@@ -73,8 +73,8 @@ namespace SysMediPlus.InsideForms.Pacientes
 
             var USER = db.Cargos.ToList();
 
-            var obj3 = new Cargo { IdCargo = 0, NombreCargo = "SELECCIONE" };
-            USER.Insert(0, obj3);
+            var obj3 = new Cargo { IdCargo = 1, NombreCargo = "SELECCIONE" };
+            USER.Insert(1, obj3);
             CbtipodeUsuario.DataSource = USER;
             CbtipodeUsuario.DisplayMember = "NombreCargo";
             CbtipodeUsuario.ValueMember = "IdCargo";
