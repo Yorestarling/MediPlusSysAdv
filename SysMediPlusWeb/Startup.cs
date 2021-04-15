@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataAccess;
+using SysMediPlusWeb.Models;
+using SysMediPlusWeb.Services;
 
 namespace SysMediPlusWeb
 {
@@ -32,7 +34,10 @@ namespace SysMediPlusWeb
             });
             services.AddControllersWithViews();
             services.AddSession();
-            
+
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+
+            services.AddSingleton<IEmailSender, EmailSender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
